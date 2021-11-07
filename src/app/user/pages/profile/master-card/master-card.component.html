@@ -1,0 +1,24 @@
+<div class="page">
+    <div class="pageHead d-flex ">
+        <div class="header order-1">
+            بطاقات الائتمان
+        </div>
+        <div class="btncontainer order-2 mr-auto">
+            <button [routerLink]="['/user/profile/add-credit-card']" class="addCard"> اضف بطاقة<span style="font-size: 20px;">+</span></button>
+        </div>
+    </div>
+    <div class="cardBox d-flex mb-3" *ngFor="let item of allCards;let i = index">
+        <div class="cardNum order-1">
+            {{i+1}}
+        </div>
+        <!-- <div class="photocontainer order-2 mr-3 mt-3">
+            <img src="../../../../../assets/images/mastercard.png" alt="mastercard">
+        </div> -->
+        <div class="cardSerialCont order-3 mr-3 mt-3">
+            {{item.card_number}}
+        </div>
+        <div class="deleteCont order-4 mr-auto mt-4" (click)="openModalDeleteCard(item.id)">
+            X
+        </div>
+    </div>
+</div>

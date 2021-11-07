@@ -1,0 +1,60 @@
+.page{
+    .backgroundPage{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 6px #D9D9F3;
+        border-radius: 10px;
+        min-height: 300px;
+        .image{
+            width: 100px;
+            height: 97px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 15px #0000005C;
+            border-radius: 49px;
+            img{
+                width: 42px;
+            }
+        }
+        .textTitle{
+            font: normal normal 600 20px/37px Cairo;
+            letter-spacing: 0px;
+            margin-right: 20px;
+            .spe{
+                color: #111E6C;
+            }
+        }
+        .icon{
+            font-size: 22px;
+        }
+        .titleIcon{
+            margin-right: 19px;
+        }
+    }
+
+    .control{
+        font-size: 18px;
+    }
+  a{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.83;
+    color: #000000;
+    text-decoration: none;
+  }
+  .activeColor{
+    a{
+        color: #111e6c;
+    }
+    .icon{
+        color: #111e6c;
+    }
+  }
+  .miniWidth{
+      width: 97%;
+  }
+}
+
+@media screen and(max-width:500px){
+    .miniWidth{
+        width: 100% !important;
+    }
+}

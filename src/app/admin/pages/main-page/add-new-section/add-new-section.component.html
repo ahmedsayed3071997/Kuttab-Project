@@ -1,0 +1,64 @@
+<div class="page">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="heading">
+                <h6 *ngIf="!id"> اضافة قسم جديد</h6>
+                <h6 *ngIf="!id">   تعديل القسم</h6>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="categoryForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="fileupload">صوره القسم</label>
+                    <label for="fileupload" *ngIf="!image">
+                        <div>
+                            +
+                        </div>
+                    </label>
+                    <label for="fileupload" *ngIf="image">
+                        <div>
+                            <img style="width: inherit;height: inherit;" [src]="image" alt="notfound">
+                        </div>
+                    </label>
+                    <input (change)="onFileChange($event)" id="fileupload" 
+                    type="file" accept=".jpg, .jpeg" style="visibility: hidden;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="form-group ml-3">
+                <label for=""> ادخل اسم القسم المراد اضافته</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="ادخل اسم القسم">
+                <div *ngIf="categoryFormRef.name.touched && categoryFormRef.name.invalid">
+                    <div class="error_message_control_form" *ngIf="categoryFormRef.name.errors?.required">اسم الفسم اجباري</div>
+                    <div class="error_message_control_form" *ngIf="!categoryFormRef.name.errors?.required&&categoryFormRef.name.errors?.minlength">اقل عدد 3 حروف</div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group ml-3">
+                    <label for="">وصف القسم</label>
+                    <textarea formControlName="description" name="" class="form-control" rows="5" placeholder="معلومات عن القسم"></textarea>
+                    <div *ngIf="categoryFormRef.description.touched && categoryFormRef.description.invalid">
+                        <div class="error_message_control_form" *ngIf="categoryFormRef.description.errors?.required">وصف الفسم اجباري</div>
+                        <div class="error_message_control_form" *ngIf="!categoryFormRef.description.errors?.required&&categoryFormRef.description.errors?.minlength">اقل عدد 6 حروف</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="bntcontainer">
+                    <button *ngIf="!id" (click)="addCategory()" [disabled]="categoryForm.invalid">اضف قسم</button>
+                    <button *ngIf="id" (click)="editCategory()" [disabled]="categoryForm.invalid">تعديل قسم</button>
+                    <button>الغاء </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+<div class="cover-section">
+  <div class="d-flex content-cover-section">
+    <div class="d-flex w-100">
+      <img class="h-100" src="assets/images/professional-hardcover-book.png">
+      <h3>سله الشراء</h3>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+<div class="container">
+  <div class="row justify-content-center" style="margin: 45px auto;" >
+    <h3>  <span class="icon icon-cart"></span>  سله الشراء   </h3>
+  </div>
+  <div  style=" overflow: auto; " >
+    <div class="container-fluid" style="min-width: 700px; padding: 5px 20px;">
+      <div class="row row-cart" *ngFor="let item of cart; let i = index" >
+        <div class="col-5">
+          <div class="row">
+            <div class="col-4" >
+              <img class="w-100 h-100" src="{{item?.book?.photo?.path}}">
+            </div>
+            <div class="col-8">
+              <div class="book">
+                <h5 class="special-heading-t-1">اسم الكتاب</h5>
+                <h5 class="book-title text-right" matTooltip="{{item?.book?.name}}" [routerLink]="['/user/book', item.book.id]"
+                [innerHtml]="(item?.book?.name?.length >= 15) ? (item?.book?.name | slice:0:15):(item?.book?.name)"></h5>
+                <h6 class="name-title"><span>المؤلف :- </span><a  [routerLink]="['/user/auther', item.book?.author?.id]">{{item.book?.author?.full_name}}</a></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 text-center">
+          <h5 style="margin-top: 10px;">السعر</h5>
+          <span class="price">{{item?.book?.price_after_discount}} درهم</span>
+
+        </div>
+        <div class="col-2 text-center">
+          <h5 style="margin-top: 10px;">الكميه</h5>
+          <div class="d-flex justify-content-center">
+            <span class="icon icon-plus" (click)="(item?.book?.number_of_copies >= item?.number + 1) ? (item.number = item.number +1) : '';updateCart()" ></span>
+            <input type="number" disabled [(ngModel)]="item.number">
+            <span class="icon icon-minus" (click)="(item?.number -1 > 0) ? (item.number = item.number -1) : '';updateCart()"></span>
+          </div>
+        </div>
+        <div class="col-2 text-center">
+          <h5 style="margin-top: 10px;">الاجمالى</h5>
+          <span class="price">{{item?.book?.price_after_discount * item.number}} درهم</span>
+
+        </div>
+        <div class="col-1 text-center">
+          <span class="icon icon-trash-2" (click)="openModalConfirmDeleteFromFavorite(item.book.id)" ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="bntcontainer  text-center">
+        <a class="addButton" [routerLink]="['/user/order']">الدفع</a>
+      </div>
+    </div>
+  </div>
+
+</div>

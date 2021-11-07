@@ -1,0 +1,48 @@
+<div class="cover-section">
+  <div class="d-flex content-cover-section">
+    <div class="d-flex w-100">
+      <img class="h-100" src="assets/images/professional-hardcover-book.png">
+      <h3>الرئيسية / العروض</h3>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+
+
+<div class="container">
+  <div class="row mainrow">
+      <section class=" col-lg-12 ">
+        <div class="row  " >
+          <div class=" col-md-4 col-6" *ngFor="let book of books"  >
+            <div class="book">
+              <div class="icon-cover" *ngIf="user && !book.is_favorite" (click)="openModalConfirmAddToFavorite(book.id)"  ><span class="icon-heart-o"></span></div>
+              <div class="icon-cover" *ngIf="user && book.is_favorite" (click)="openModalConfirmDeleteFromFavorite(book.id)" ><span class="icon-Icon-awesome-heart"></span></div>
+              <img class="w-100" src="{{book?.photo?.path}}" (error)="book.photo.path = 'assets/images/book1.png'">
+              <div class="book-details">
+                <h5 class="book-title">
+                  <a  [routerLink]="['/user/book', book.id]">{{book.name}}</a>
+                </h5>
+                <h6 class="name-title"><span>المؤلف :- </span><a [routerLink]="['/user/auther', book?.author?.id]">{{book?.author?.full_name}}</a></h6>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex " style="margin: 25px 0px;">
+                    <span class="price" *ngIf="book?.discount">{{book?.price_after_discount}} درهم</span>
+                    <span class="price" *ngIf="!book?.discount">{{book?.price}} درهم</span>
+                    <span class="price-discount" *ngIf="book?.price_after_discount !== book?.price" >{{book?.price}} درهم</span>
+                  </div>
+                  <a class="card"  (click)="openModalConfirmAddToCart(book)"  ><span class="icon icon-cart"></span> <span class="icon icon-plus"></span></a>
+                </div>
+                <div class="d-flex date-close justify-content-between">
+                  <h5> تاريخ الانتهاء</h5>
+                  <h6>{{book?.closing_date| date}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="books.length == 0"  class="no-data"> لا يوجد عروض</div>
+
+        </div>
+      </section>
+
+  </div>
+</div>

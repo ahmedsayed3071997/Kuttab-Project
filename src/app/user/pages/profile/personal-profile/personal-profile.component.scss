@@ -1,0 +1,80 @@
+.page{
+    padding: 16px;
+    .order-1 span {
+        font-size: 40px;
+        color: #FFF;
+    }
+    .head{
+        font-size: 20px;
+        line-height: 1.85;
+        color: #000000;
+        .spe{
+            font-weight: bold;
+        }
+    }
+    .subHead{
+        font-size: 16px;
+        color: #000000;
+    }
+    .card{
+        width: 135px;
+        height: 135px;
+        border-radius: 10px;
+        border: none;
+        margin-left: 50px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    .card1{
+        background-color: #2dc84e;
+        opacity: .5;
+    }
+    .card1:hover {
+        background-color: #2dc84e;
+        opacity: 1;
+    }
+    .card2{
+        background-color: #db1212;
+        opacity: .5;
+    }
+    .card2:hover {
+        background-color: #db1212;;
+        opacity: 1;
+    }
+    .card3{
+        background-color: #661395;
+        opacity: .5;
+    }
+    .card3:hover {
+        background-color: #661395;
+        opacity: 1;
+    }
+    
+    .card4{
+        background-color: #63707c;
+        opacity: .5;
+    }
+    .card4:hover {
+        background-color: #63707c;
+        opacity: 1;
+    }
+    .card5 {
+        background-color: #e77508;
+        opacity: .5;
+    }
+    .card5:hover {
+        background-color: #e77508;
+        opacity: 1;
+    }
+    .icon{
+        color: #fff;
+        font-size: 50px;
+    }
+    .iconText{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.86;
+        color: #ffffff;
+        margin-top: 14px;
+    }
+}

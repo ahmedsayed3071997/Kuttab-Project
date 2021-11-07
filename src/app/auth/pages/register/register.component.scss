@@ -1,0 +1,201 @@
+@import"/src/assets/globalStyle/globalStyle.scss";
+
+.container{
+    .page{
+        padding: 0 47px 0 0;
+        box-shadow: 0 3px 20px 0 rgba(217, 217, 243, 0.56);
+        background-color: #ffffff;
+    }
+    .head{
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.85;
+        color: #000000;
+        margin-top: 31px;
+    }
+    .logo{
+        img{
+            width: 48px;
+            margin-top: 24px;
+        }
+    }
+    .formLogin{
+        .containInut{
+            margin-top: 22px;
+            position: relative;
+            cursor: pointer;
+            .input, ::ng-deep .iti input{
+                width: 100%;
+                padding: 10px;
+                padding-left: 40px;
+                border-radius: 8px;
+                border: solid 1px #d9d9f3;
+                background-color: rgba(217, 217, 243, 0.3);
+                text-align: left;
+            }
+            ::ng-deep .iti{
+                width: 100%;
+            }
+            
+            .containInut i{
+                top: 43px;
+                position: absolute;
+                right: 23px;
+                color: #707070;
+            }
+            ::ng-deep .iti__selected-flag {
+                padding: 0 6px 0 3px;
+            }
+            
+            ::-webkit-input-placeholder{
+                font-size: 14px;
+                text-align: left;
+                color: #9a9a9a;
+            }
+            .append{
+                padding: 10px;
+                border-radius: 8px;
+                border: solid 1px #d9d9f3;
+                background-color: rgba(217, 217, 243, 0.3);
+                text-align: left;
+                border-bottom-right-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+            .icon{
+                position: absolute;
+                top: 10px;
+                left: 12px;
+                font-size: 20px;
+                color: #c4c4c4;
+            }
+            .icon2{
+                position: absolute;
+                top: 10px;
+                right: 12px;
+                font-size: 18px;
+                color: #c4c4c4;
+            }
+        }
+        .edit{
+            .input{
+                text-align: right;
+            }
+            ::-webkit-input-placeholder{
+                text-align: right;
+            }
+        }
+        .forgerPassword{
+            margin-top: 8px;
+            font-size: 14px;
+            color: #9a9a9a;
+            text-align: right;
+        }
+        .actions{
+            margin-top: 20px;
+            .login{
+                border-radius: 8px;
+                box-shadow: 0 3px 6px 0 rgb(0 0 0 / 15%);
+                background-color: #111e6c;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.88;
+                text-align: center;
+                color: #ffffff;
+                padding: 7px 55px;
+                cursor: pointer;
+            }
+        }
+    }
+    .image{
+        position: relative;
+        text-align: center;
+        height: 100%;
+        background-image: linear-gradient(#111e6c, #111e6c);
+        border-radius: 10px;
+        
+
+        img{
+            border-radius: 10px;
+            box-shadow: 0 3px 20px 0 rgba(217, 217, 243, 0.56);
+            background-color: #111e6c;
+            height: 100%;
+            opacity: .5;
+        }
+        .centered{
+            font-size: 48px;
+            font-weight: 600;
+            text-align: center;
+            color: #ffffff;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+    }
+    .dontHaveAccount{
+        margin-top: 12px;
+        font-size: 14px;
+        color: #000000;
+        .spe{
+            color: #111e6c;
+            cursor: pointer;
+        }
+    }
+    .separator {
+        margin-top: 33px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        color: #14213d;
+        .text{
+            font-size: 20px;
+            color: #14213d;
+            padding: 0px 15px;
+        }
+      }
+      
+      .separator::before,
+      .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 2px solid #e5e5e5;
+      }
+      
+      .separator:not(:empty)::before {
+        margin-right: .25em;
+      }
+      
+      .separator:not(:empty)::after {
+        margin-left: .25em;
+      }
+      .icons{
+          margin-top: 33px;
+          margin-bottom: 33px;
+         font-size: 35px;
+        
+        .iconF{
+            color: #4267b2;
+            cursor: pointer;
+        }
+        .iconG{
+            color: #db4437;
+            cursor: pointer;
+        }
+      }
+      .radioButton{
+          margin-top: 24px;
+      }
+}
+
+
+
+@media screen and(max-width:$sm){
+    .container{
+        .page{
+            padding: 0px !important
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<div class="container sections">
+  <div class="row justify-content-between">
+    <div class="col-12 d-flex justify-content-between">
+      <div>
+        <div class="title-topic">
+        </div>
+        <div class="title-topic-text">كافة الاقسام</div>
+      </div>
+      <div>
+        <a [routerLink]="['all-sections']" class="view-all">عرض الكل</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-4" *ngFor="let cat of categories" >
+      <div class="section-book" [routerLink]="['section-book', cat.id]">
+        <div class="section-book-img"><img src="{{cat.photo.path}}"></div>
+        <h6  class="section-book-title"><a  >
+        {{cat.name.slice(0, 10)}}</a></h6>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 15px;">
+    <div class="col-lg-3 col-md-4 col-6 ">
+      <div class="section-dec">
+        <span class="icon icon-bxs-truck--1"></span>
+        <span class="text">توصيل مجاني للطلبات اكثر من 200 درهم</span>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 ">
+      <div class="section-dec">
+        <span class="icon icon-bx-happy-heart-eyes-1"></span>
+        <span class="text">99% من عملائنا راضون عن الخدمه</span>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 ">
+      <div class="section-dec">
+        <span class="icon icon-bxs-credit-card--1"></span>
+        <span class="text">نظام امن لوسائل الدفع الالكتروني</span>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6 ">
+      <div class="section-dec">
+        <span class="icon icon-bxs-purchase-tag-alt-1"></span>
+        <span class="text">افضل العروض والخصومات تصل الي 50 %</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="page">
+  <div class="head mb-3">
+      <div class="header">
+          عنوان جديد
+      </div>
+  </div>
+  <div class="formCont col-xl-9">
+      <form [formGroup]="addressForm">
+          <div class="form-group mt-2">
+              <label for="country">الدولة</label>
+              <select formControlName="country"  class="form-select form-control" style="padding: 0 .70rem 0 .70rem;"   (change)="gitCityes()" >
+                  <option value="">اكتب اسم دولتك</option>
+                  <option [value]="country.country" *ngFor="let country of countries; let i =index"
+                  >{{country.country}}</option>
+              </select>
+              <div *ngIf="addressFormRef.country.touched && addressFormRef.country.invalid">
+                <div class="error_message_control_form" *ngIf="addressFormRef.country.errors?.required">الدوله اجبارى</div>
+              </div>
+          </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="zone">المدينة</label>
+                <select formControlName="city" class="form-select form-control" style="padding: 0 .70rem 0 .70rem;">
+                    <option value="">اختر مدينتك</option>
+                    <option    [value]="city" *ngFor="let city of cites" >  {{city}} </option>
+                </select>
+                <div *ngIf="addressFormRef.city.touched && addressFormRef.city.invalid">
+                  <div class="error_message_control_form" *ngIf="addressFormRef.city.errors?.required">المدينه اجبارى</div>
+                </div>
+              </div>
+              <div class="form-group mr-xl-auto mr-lg-auto">
+                <label for="zone"> المنطقة</label>
+                <input formControlName="region" class="form-select form-control" style="padding: 0 .70rem 0 .70rem;"
+                type="text" placeholder="اختر منطقتك" >
+                <div *ngIf="addressFormRef.region.touched && addressFormRef.region.invalid">
+                  <div class="error_message_control_form" *ngIf="addressFormRef.region.errors?.required">المنطقه اجبارى</div>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="address">عنوان الشارع / الحي</label>
+              <input formControlName="address" class="form-select form-control" style="padding: 0 .70rem 0 .70rem;"
+               type="text" placeholder="رقم المنزل / اسم الشارع / اسم الحي" >
+               <div *ngIf="addressFormRef.address.touched && addressFormRef.address.invalid">
+                <div class="error_message_control_form" *ngIf="addressFormRef.address.errors?.required">العتوان اجبارى</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="postNum">الرمز البريدي <span style="display: inline-block;" class="mr-5">/ ZIP</span> </label>
+              <input formControlName="zip" type="text" class="form-control" placeholder="94378356">
+              <div *ngIf="addressFormRef.zip.touched && addressFormRef.zip.invalid">
+                <div class="error_message_control_form" *ngIf="addressFormRef.zip.errors?.required">الرمز البريدى اجبارى</div>
+              </div>
+          </div>
+          <div class="form-group btncontainer" style="padding: 15px;">
+              <button type="submit" (click)="addAdress()" >حفظ</button>
+              <a [routerLink]="['/user/profile/address']" style="background-color: #fff; color: #9A9A9A;border-style: none; box-shadow: none;">العودة</a>
+          </div>
+      </form>
+  </div>
+</div>

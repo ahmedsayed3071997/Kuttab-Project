@@ -1,0 +1,82 @@
+
+
+.row-cart{
+  border-radius: 20px;
+  box-shadow: 0px 0px 6px 6px #e6e1e1;
+  padding: 20px 5px;
+  margin-bottom: 25px;
+}
+.icon-cart{
+  color: #111E6C;
+  font-size: 36px;
+}
+////////////////////////////////////////////////////////////////////////
+.special-heading-t-1 {
+  position: relative;
+}
+.special-heading-t-1::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-bottom: 5px solid #111E6C;
+  border-radius: 10px;
+  top: 30px;
+  width: 61px;
+}
+////////////////////////////////////////////////////////////////////book
+.book {
+  margin-top: 10px;
+  background: none;
+  box-shadow: none;
+}
+.book .book-title{
+  margin-top: 24px;
+}
+.book .name-title {
+  font-size: 16px;
+}
+///////////////////////////////////////////////////////////////////////
+input {
+  width: 90px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 1px 11px 0px #e6e1e1;
+  border: none;
+  color: #111E6C;
+  font-size: 18px;
+  text-align: center;
+}
+
+.icon-plus, .icon-minus{
+  margin: 10px;
+  cursor: pointer;
+}
+////////////////////////////////////////////////////////////////////////
+.price{
+  color: #111E6C;
+  font-size: 16px;
+}
+ .icon-trash-2{
+  color: #FF2A2A;
+  font-size: 30px;
+  line-height: 90px;
+  cursor: pointer;
+ }
+ .addButton {
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000026;
+  text-align: center;
+  font: normal normal 600 16px/30px Cairo;
+  letter-spacing: 0px;
+  color: #111E6C;
+  padding: 10px 20px;
+  opacity: 1;
+  border: 2px solid #111E6c;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.addButton:hover {
+  color: #fff;
+  background-color: #111E6C;
+}

@@ -1,0 +1,95 @@
+.page {
+    padding-bottom: 76px;
+    padding-top: 20px;
+    .row {
+        margin-right: 1%;
+        margin-bottom: 10px;
+        .heading h6 {
+            margin-right: 6px;
+            text-align: right;
+            font: normal normal bold 20px/37px Cairo;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+        }
+    }
+}
+.page {
+    .row {
+        .btncontainer {
+            background: #111E6C 0% 0% no-repeat padding-box;
+            border-radius: 8px;
+            width: 122px;
+            height: 41px;
+           
+        }
+        button {
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 6px #00000026;
+            border-radius: 8px;
+            border: 1px solid #111e6c;
+            opacity: 1;
+            color: #111e6c;
+            text-align: center;
+            font: normal normal 600 16px/30px Cairo;
+            letter-spacing: 0px;
+            opacity: 1;
+            width: 122px;
+            height: 41px;
+            margin-left: 10px;
+            margin-top: 30px !important;
+        }
+        button:hover {
+            background: #111e6c;
+            color: #fff;
+            transition-delay: .1s;
+        }
+        .cancel-btn:hover {
+            background: #111e6c;
+            color: #fff;
+            transition-delay: .1s;
+        }
+        .form-group {
+            label {
+                text-align: right;
+                font: normal normal normal 16px/32px Cairo;
+                letter-spacing: 0px;
+                color: #000000;
+                opacity: 1;
+                margin-right: 7px;
+            }
+            label div {
+                width: 86px;
+                height: 59px;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                border: 1px solid #D9D9F3;
+                opacity: 1;
+                text-align: center;
+                line-height:58px;
+                color: #111E6C;
+                font-size: 30px;
+                margin-right: 20px;
+            }
+            input {
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                border: 1px solid #D9D9F3;
+                border-radius: 8px;
+                opacity: 1;
+            }
+            .file-input input {
+                width: 86px;
+                height: 59px;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                border: 1px solid #D9D9F3;
+                opacity: 1;
+                color: #FFFFFF;
+                border: 1px solid #D9D9F3;
+                border-radius: 8px;
+                opacity: 1;
+            }
+        }
+    }
+    .arrowCarrier {
+        margin-top: -5%;
+    }
+}

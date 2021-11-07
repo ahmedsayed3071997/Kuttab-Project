@@ -1,0 +1,50 @@
+<div class="page">
+    <div class="head">
+        <span class="spe">مرحبا</span> {{auth?.user?.fullname}}
+    </div>
+    <div class="subHead">
+        من خلال لوحه التحكم الخاصه بك يمكنك تعديل حسابك واضافه او حذف بطاقتك الائتمانيه وتغيير عناوين الشحن الخاصه بك ومراجعه كتبك وطلباتك ومفضلتك وسله مشترياتك
+    </div>
+    <div class="d-flex flex-wrap justify-content-center" style="margin-top: 45px;">
+        <div class="order-1">
+            <div class="d-flex card card1 justify-content-center" [routerLink]="['edit']">
+                <div class="order-1 text-center">
+                    <span class="icon-edit"></span>
+                </div>
+                <div class="order-2 text-center iconText">تعديل الحساب </div>
+            </div>
+        </div>
+        <div class="order-2">
+            <div class="d-flex card card2 justify-content-center" [routerLink]="['credit-card']">
+                <div class="order-1 text-center">
+                    <span class="icon-credit-card"></span>
+                </div>
+                <div class="order-2 text-center iconText"> بطاقة الائتمان</div>
+            </div>
+        </div>
+        <div class="order-3">
+            <div class="d-flex card card3 justify-content-center" [routerLink]="['address']">
+                <div class="order-1 text-center">
+                    <span class="icon-location"></span>
+                </div>
+                <div class="order-2 text-center iconText"> عنواني</div>
+            </div>
+        </div>
+        <div class="order-4">
+            <div class="d-flex card card4 justify-content-center" [routerLink]="['purchases']">
+                <div class="order-1 text-center">
+                    <span class="icon-cart"></span>
+                </div>
+                <div class="order-2 text-center iconText"> المشتريات</div>
+            </div>
+        </div>
+        <div class="order-5">
+            <div class="d-flex card card5 justify-content-center" [routerLink]="['myFavorite']">
+                <div class="order-1 text-center">
+                    <span class="icon-Icon-awesome-heart"></span>
+                </div>
+                <div class="order-2 text-center iconText"> مفضلاتي</div>
+            </div>
+        </div>
+    </div>
+</div>

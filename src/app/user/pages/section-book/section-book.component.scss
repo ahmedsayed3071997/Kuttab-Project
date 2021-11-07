@@ -1,0 +1,151 @@
+
+/* end trick  */
+/* Start sidebar and content */
+.icon-Icon-awesome-heart, .icon-heart-o{
+  cursor: pointer;
+}
+aside {
+   color: rgb(87, 79, 79);
+   grid-area: side;
+   border-bottom:0 ;
+   border-right:0 ;
+   border-left: 0;
+   border-radius: 7px;
+   margin-top: 50px;
+
+}
+aside h5 {
+   color: #fff;
+
+   height: 67px;
+   padding: 20px 30px 20px 30px ;
+   background-color: #501BCE;
+   border-radius: 10px;
+   text-align: center;
+   margin-top: 0;
+   margin-bottom: 10px;
+}
+aside form {
+
+   margin-top: 0px;
+   padding-top: 0;
+   padding-bottom: 20px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   background: #FFFFFF 0% 0% no-repeat padding-box;
+   box-shadow: 10px 12px 53px #0000000F;
+}
+aside form .form-group {
+   padding: 0 15px 7px 15px;
+   color: #999;
+}
+aside form .form-group label {
+   padding-bottom: 8px;
+   font-size: 13px;
+}
+aside form .form-group .form-control {
+   padding: 8px 6px 8px 6px;
+   height: 41px;
+   margin-bottom: 15px;
+   border: 3px solid #F6F6F6;
+   color: #999;
+   font-size: 13px;
+}
+
+aside form .form-group select {
+   color: #999;
+   height: 41px;
+   padding: 8px 6px 8px 6px;
+   margin-bottom: 20px;
+   border: 3px solid #F6F6F6;
+   border-radius: .25rem;
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   background-color: #fff;
+   font-size: 13px;
+}
+
+.form-group .check {
+   color: #999;
+}
+aside form .btncontainer {
+   display: flex;
+   justify-content: center;
+}
+aside form .btncontainer button{
+   padding: 6px 30px 6px 30px;
+   background: #fff 0% 0% no-repeat padding-box;
+   border-radius: 5px;
+   color: #111E6C;
+   border: 1px solid #111E6C;
+   opacity: 1;
+}
+aside form .btncontainer button:hover {
+   background: #111E6C;
+   color: #fff;
+   transition-delay: .1s;
+}
+aside form .form-check-label {
+   padding-right: 20px;
+    color: #BBBBBB;
+}
+
+aside .form-check-input:checked {
+  width: 20px;
+  color: #BBBBBB;
+  background: #BBBBBB;
+  /* margin: 19px; */
+  font-size: 21px;
+  height: 13px;
+}
+
+aside .advcontainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   border-color: rgb(248, 241, 241) ;
+
+}
+aside .advcontainer .adv1 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   font: normal normal medium 40px/60px MadaniArabic;
+   background-color: #E9E9FD;
+   text-align: center;
+   height: 293px;
+   line-height: 293px;
+   margin-top: 50px;
+   border-radius: 50px;
+   color: #828282;
+   font-size: 40px;
+}
+aside .advcontainer .adv2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   font: normal normal medium 40px/60px MadaniArabic;
+   background-color: #E9E9FD;
+   text-align: center;
+   height: 293px;
+   line-height: 293px;
+   margin-top: 62px;
+   border-radius: 50px;
+   color: #828282;
+   font-size: 40px;
+}
+section {
+   background-color: #fff;
+}
+.cardrow {
+   margin-bottom: 66px;
+}
+.no-data{
+  margin: 200px auto;
+  text-align: center;
+  font-size: 40px;
+  color: #501BCE;
+}

@@ -1,0 +1,39 @@
+
+.header{
+  padding: 20px 20px 0px;
+}
+.address-page{
+  padding-top: 10px;
+  height: 415px;
+  overflow: auto;
+}
+.header h2{
+  margin-bottom: 20px;
+}
+.add-address{
+  background: #111E6C;
+  width: 25px;
+  border-radius: 50%;
+  height: 25px;
+  cursor: pointer;
+}
+.icon-plus{
+  font-size: 25px;
+  color: #fff;
+}
+.address{
+  margin: 0px -6px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #d9d9f3;
+  padding: 10px 0px;
+}
+.basic-data{
+  color: #9A9A9A;
+  font-size: 15px;
+}
+.icon{
+  color: #9A9A9A;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}

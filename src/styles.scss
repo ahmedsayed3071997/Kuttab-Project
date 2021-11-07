@@ -1,1 +1,243 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+h3{
+  font-size: 27px !important;
+  font-weight: 500;
+}
+h5{
+  font-size: 1.25rem !important;
+}
+///////////////////////////////title for section ////////////////
+@font-face {
+  font-family: 'bukfont';
+
+   src: url('fonts/alfont_com_AlFont_com_4_C7.ttf') format('woff'), 
+        url('fonts/alfont_com_AlFont_com_4_C7.ttf') format('truetype');
+
+ 
+}
+.mat-typography{
+   text-align: right;
+   font-family: "bukfont" !important;
+}
+.mat-body, .mat-body-1, .mat-typography{
+  font-family: "bukfont" !important;
+}
+* {
+  font-family: "bukfont" !important;
+}
+.title-topic{
+  display: inline-block;
+  background: #111E6C70;
+  padding: 20px 45px;
+  transform: skewX(-30deg);
+
+}
+.title-topic-text{
+  transform: translate(77px, -13px);
+  font-size: 20px;
+  top: 10px;
+  display: inline-block;
+  font-weight: 600;
+}
+.view-all{
+  color: #111E6C;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+}
+@media(max-width: 400px) {
+  .title-topic-text{
+    font-size: 17px;
+  }
+}
+////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////cover section ////////////////////////////
+.cover-section{
+  height: 300px;
+  transform: translateY(-17px);
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+.content-cover-section{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+}
+.content-cover-section h3{
+  width: 100%;
+  margin: 8% auto;
+  font-size: 24px;
+  color: #fff;
+  margin-right: 35px;
+}
+.overlay{
+  background: #111E6C;
+  height: 300px;
+  width: 100%;
+  opacity: 0.65;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+
+}
+
+.navcont {
+   position: absolute;
+   top: 0%;
+   background-color: #FBFBFB;
+   border-radius: 0 0 30px 30px;
+   border: 3px solid #fff;
+   border-top: 0;
+   border-bottom: 0;
+   z-index: 2;
+}
+@media(max-width: 600px){
+  .content-cover-section h3 {
+    margin: 35% auto;
+    text-align: center;
+  }
+  .content-cover-section img{
+    display: none;
+  }
+
+}
+////////////////////////////////////////////////////////////////
+////////////////////// style book /////////////////////////////////////
+.book {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  box-shadow: 5px 4px 18px 6px #e6e1e1;
+  border-radius: 10px;
+  cursor: pointer;
+  img{
+    height: 230px;
+  }
+  .icon-cover{
+    display: inline-flex;
+    padding: 10px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(10px, -19px);
+    box-shadow: 5px 0px 10px 0px #e6e1e1;
+  }
+  .icon-heart-o{
+    font-size: 17px;
+  }
+  .icon-Icon-awesome-heart, .icon-heart-o{
+    cursor: pointer;
+    color: #F11010;
+
+  }
+  .book-details{
+    padding: 10px;
+  }
+  .book-title ,  .book-title a{
+    font-weight: 600;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 10px;
+    color: #555 !important;
+  }
+  .name-title{
+    font-size: 14px;
+    min-height: 40px;
+  }
+  .name-title span{
+    color: #979797;
+  }
+  .name-title a{
+    color: #111E6C;
+  }
+  .price{
+    color: #111E6C;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .card{
+    padding: 3px 4px 0px;
+    background: #111E6C;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .card .icon{
+    color: #fff;
+    font-size: 16px;
+  }
+}
+.book:hover{
+  transform: scale(1.1);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+textarea:focus, input:focus{
+   outline: none;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle  {
+
+   background-color: #111e6c !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+   border-color: #111e6c !important;
+}
+
+button:disabled{
+   cursor: no-drop !important;
+   opacity: .5 !important;
+}
+.error_message_control_form{
+  font-size: 12px;
+    text-align: right;
+    color: red;
+    margin-right: 8px;
+    margin-top: 3px;
+}
+html, body { height: 100%; }
+body { margin: 0;}
+///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////// modal
+
+
+.close-add, .add-to-cart{
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 30px;
+  background: #FF2A2A;
+  color: #fff;
+  border: none;
+}
+.add-to-cart{
+  background: #111E6C;
+}
+ .modal.show .modal-dialog{
+  margin-top: 20%;
+}
+@font-face {
+  font-family: 'Inlove';
+  src: url('./assets/29LT-Bukra-Light.otf') !important;
+}

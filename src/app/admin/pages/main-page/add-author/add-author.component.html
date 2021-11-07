@@ -1,0 +1,122 @@
+<div class="page">
+    <div class="row mr-4 pagerow">
+      <div class="col-10">
+        <form style="width: 100%;" [formGroup]="autherForm">
+            <div class="photoRow d-flex justify-content-center" >
+                <div (click)="picRef.click()">
+                    <div class="photocont" *ngIf="!image">
+                        <img  src="../../../../../assets/images/Mask Group 1@2x_adobespark.png" alt="">
+                        <span class="icon-Icon-awesome-camera"></span>
+                    </div>
+                    <div class="photoRow d-flex justify-content-center" *ngIf="image">
+                        <img style="width: 100px;height: 100px;border-radius: 200px;" [src]="image" alt="">
+                    </div>
+                </div>
+                <input (change)="onFileChange($event)" accept=".jpg, .jpeg" #picRef type="file" style="visibility: hidden;height:0px;">
+            </div>
+
+            <div class="form-row">
+                <div class="col-xl-5" style="width: 220px;">
+                    <label for="inputWithIcon" class="label">اسم المؤلف بالكامل</label>
+                    <div class="input-group" style="width: 220px;">
+                        <input formControlName="full_name" type="text" class="form-control" id="inputWithIcon" placeholder="اسم المؤلف">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text ">
+                                <span class="icon-Icon-awesome-pen" style="font-size: 10px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="autherFormRef.full_name.touched && autherFormRef.full_name.invalid">
+                        <div class="error_message_control_form" *ngIf="autherFormRef.full_name.errors?.required">اسم المؤلف اجباري</div>
+                        <div class="error_message_control_form" *ngIf="!autherFormRef.full_name.errors?.required && autherFormRef.full_name.errors?.minlength">  3اقل عدد حروف</div>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="form-group" style="max-width: 220px;">
+                        <label for="select">الجنسية</label>
+                        <div class="selectBox">
+                           <div class="arrowCarrier">
+                                <span class="icon-bxs-chevron-right-1 arrow "></span>
+                           </div>
+                            <select formControlName="nationality" class="form-control select" id="select" >
+                                <ng-container *ngFor="let item of allNationalities">
+                                    <option [value]="item">{{item}}</option>
+                                </ng-container>
+                              </select>
+                        </div>
+                      </div>
+                  </div>
+            </div>
+            <!-- <div class="form-row">
+               <div class="col-10">
+                <label for="inputWithIcon" class="label">رقم الحساب البنكي</label>
+                <div class="input-group">
+                    <input formControlName="account_number" type="text" class="form-control" id="inputWithIcon" placeholder="ادخل رقم الحساب">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text ">
+                            <span class="icon-Icon-awesome-pen" style="font-size: 10px;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="autherFormRef.account_number.touched && autherFormRef.account_number.invalid">
+                    <div class="error_message_control_form" *ngIf="autherFormRef.account_number.errors?.required">رقم الحساب اجباري</div>
+                </div>
+               </div>
+            </div> -->
+            <div class="form-row">
+                <div class="col-10">
+                    <label for="innputname" class="label">البريد الالكتروني</label>
+                    <div class="input-group">
+                        <input formControlName="email" type="text" class="form-control" id="innputname" placeholder="ادخل البريد الالكتروني">
+                        <div *ngIf="autherFormRef.email.touched && autherFormRef.email.invalid">
+                            <div class="error_message_control_form" *ngIf="autherFormRef.email.errors?.required">البريد الالكتروني اجباري</div>
+                            <div class="error_message_control_form" *ngIf="!autherFormRef.email.errors?.required&&autherFormRef.email.errors?.email">  ادخل ايميل صحيح </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="containInut text-right col-12">
+                    <label>رقم الهاتف</label>
+                    <br>
+                    <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                        [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                        [selectedCountryISO]="CountryISO.India" 
+                        [maxLength]="'15'"
+                        [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                        [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
+                    </ngx-intl-tel-input>
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="col-12" *ngIf="autherFormRef.phone.touched && autherFormRef.phone.invalid">
+                    <div class="error_message_control_form" 
+                    *ngIf="autherFormRef.phone.errors?.required">رقم الهاتف اجباري</div>
+                </div>
+                <div class="col-12" *ngIf="autherFormRef.phone.touched && autherFormRef.phone.invalid">
+                    <div class="error_message_control_form" 
+                    *ngIf="autherFormRef.phone.errors?.validatePhoneNumber">رقم الهاتف غير صحيح</div>
+                </div>
+            </div>
+            <div class="form-row">
+               <div class="col-10">
+                    <label class="label">معلومات عن المؤلف</label>
+                    <textarea formControlName="description" class="form-control" rows="5"></textarea>
+                    <div *ngIf="autherFormRef.description.touched && autherFormRef.description.invalid">
+                        <div class="error_message_control_form" *ngIf="autherFormRef.description.errors?.required">  الوصف اجباري</div>
+                        <div class="error_message_control_form" *ngIf="!autherFormRef.description.errors?.required&&autherFormRef.description.errors?.minlength">   اقل عدد حروف 6 </div>
+                    </div>
+               </div>
+            </div>
+            <div class="form-row">
+                <div class="col-10">
+                    <div class="btncontainer">
+                        <button *ngIf="!id" (click)="addAuthor()" [disabled]="autherForm.invalid" type="button">اضافة</button>
+                        <button *ngIf="id" (click)="editAuthor()" [disabled]="autherForm.invalid" type="button">تعديل</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

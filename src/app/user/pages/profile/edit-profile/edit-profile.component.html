@@ -1,0 +1,83 @@
+<div class="page">
+    <div class="header">
+        <p>تعديل الحساب</p>
+    </div>
+    <div class="col-xl-12">
+        <form class="edit-profile-form" [formGroup]="profileForm">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="fullname">الاسم الاول</label>
+                        <input formControlName="first_name" type="text" class="form-control" placeholder="ادخل الاسم الاول">
+                        <div *ngIf="profileFormRef.first_name.touched && profileFormRef.first_name.invalid">
+                            <div class="error_message_control_form" *ngIf="profileFormRef.first_name.errors?.required">الاسم الاول اجبارى</div>
+                            <div class="error_message_control_form" *ngIf="!profileFormRef.first_name.errors?.required && profileFormRef.first_name.errors?.minlength">اقل عدد 3 حروف</div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label for="fullname">الاسم الاخير</label>
+                        <input formControlName="last_name" type="text" class="form-control" placeholder="ادخل الاسم الاخير">
+                        <div *ngIf="profileFormRef.last_name.touched && profileFormRef.last_name.invalid">
+                            <div class="error_message_control_form" *ngIf="profileFormRef.last_name.errors?.required">الاسم الاول اجبارى</div>
+                            <div class="error_message_control_form" *ngIf="!profileFormRef.last_name.errors?.required && profileFormRef.last_name.errors?.minlength">اقل عدد 3 حروف</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xl-9">
+                <label for="email">البريد الالكتروني</label>
+                <input formControlName="email" type="text" class="form-control" placeholder="ادخل البريد الالكترونى">
+                <div *ngIf="profileFormRef.email.touched && profileFormRef.email.invalid">
+                    <div class="error_message_control_form" *ngIf="profileFormRef.email.errors?.required">الاسم الاول اجبارى</div>
+                    <div class="error_message_control_form" *ngIf="!profileFormRef.email.errors?.required && profileFormRef.email.errors?.email">الايميل غير صحيح</div>
+                  </div>
+            </div>
+            <div class="form-group col-xl-11">
+                <label for="mobile">رقم الجوال</label>
+                <div class="input-group ">
+                    <input formControlName="phone" type="number" class="form-control appendedInput" id="input" placeholder="ادخل رقم الجوال" style="border-radius: 0 8px 8px 0;">
+                    <div class="input-group-mobil" style="margin-right: -6px;z-index: 4;">
+                        <div class="input-group-text" style="border: 1px solid #D9D9F3;border-radius: 8px; background-color: #fff;">
+                        +966
+                        </div>
+                    </div>
+                    <!-- <span class="linkspan"><a class="newNumber">اضف رقم جديد</a></span> -->
+                </div>
+                <div *ngIf="profileFormRef.phone.touched && profileFormRef.phone.invalid">
+                    <div class="error_message_control_form" *ngIf="profileFormRef.phone.errors?.required"> رقم الجوال اجبارى </div>
+                </div>
+            </div>
+            <div class="form-group col-xl-9">
+               <label for="password">كلمة المرور</label>
+               <div class="input-group">
+                   <input formControlName="password" #pass1 type="password" class="form-control" placeholder="*********" style="position: relative;">
+                   <span *ngIf="pass1.type == 'password'" (click)="pass1.type = 'text'" class="icon2 icon-Icon-ionic-ios-eye" style="position: absolute; top: 30%; right: 93%;z-index: 5;cursor: pointer;"></span>
+                    <span *ngIf="pass1.type == 'text'" (click)="pass1.type = 'password'" class="icon2 icon-eye-blocked" style="position: absolute; top: 30%; right: 93%;z-index: 5;cursor: pointer;"></span>
+                    
+                </div>
+                <div *ngIf="profileFormRef.password.touched && profileFormRef.password.invalid">
+                    <div class="error_message_control_form" *ngIf="profileFormRef.password.errors?.required">الرقم السرى اجبارى</div>
+                  </div>
+            </div>
+            <div class="form-group col-xl-9">
+                <label for="password"> تاكيد كلمة المرور</label>
+                <div class="input-group">
+                    <input formControlName="confirm_password" #pass2 type="password" class="form-control" placeholder="*********" style="position: relative;">
+                    <span *ngIf="pass2.type == 'password'" (click)="pass2.type = 'text'" class="icon2 icon-Icon-ionic-ios-eye" style="position: absolute; top: 30%; right: 93%;z-index: 5;cursor: pointer;"></span>
+                    <span *ngIf="pass2.type == 'text'" (click)="pass2.type = 'password'" class="icon2 icon-eye-blocked" style="position: absolute; top: 30%; right: 93%;z-index: 5;cursor: pointer;"></span>
+                    
+                </div>
+                <div *ngIf="profileFormRef.confirm_password.touched && profileFormRef.confirm_password.invalid">
+                    <div class="error_message_control_form" *ngIf="profileFormRef.confirm_password.errors?.required">تاكيد رقم السر اجبارى</div>
+                    <div class="error_message_control_form" *ngIf="!profileFormRef.confirm_password.errors?.required && profileFormRef.confirm_password.errors?.confirmedPassword">تاكيد رقم السر غير صحيح</div>
+                  </div>
+             </div>
+             <div class="form-group btncontainer" style="padding: 15px;">
+                 <button [disabled]="profileForm.invalid" (click)="editProfile()">حفظ</button>
+                 <button style="background-color: #fff; color: #9A9A9A;border-style: none; box-shadow: none;cursor: pointer;">العودة</button>
+             </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+.page{
+    padding: 16px;
+    .order-1 span {
+        font-size: 40px;
+        color: #FFF;
+    }
+    .head{
+        font-size: 20px;
+        line-height: 1.85;
+        color: #000000;
+        .spe{
+            font-weight: bold;
+        }
+    }
+    .subHead{
+        font-size: 16px;
+        color: #000000;
+    }
+    .card{
+        width: 135px;
+        height: 135px;
+        border-radius: 10px;
+        border: none;
+        margin-left: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    .card1{
+        background-color: green;
+        opacity: .6;
+     }
+     .card1:hover {
+         background-color: green;
+         opacity: 1;
+     }
+     .card1:hover{
+        opacity: 1;
+     }
+    .card2{
+        background-color: indigo;
+        opacity: .6;
+    }
+    .card2:hover{
+        opacity: 1;
+        background-color: indigo;
+    }
+    .card3{
+        background-color: #d36152;
+        opacity: .6;
+    }
+    .card3:hover{
+        opacity: 1;
+        background-color: #d31f08;
+    }
+    .card4{
+        background-color: blue;
+        opacity: .4;
+    }
+    .card4:hover{
+        opacity: 1;
+        background-color: blue;
+    }
+    .icon{
+        color: #fff;
+        font-size: 50px;
+    }
+    .iconText{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.86;
+        color: #ffffff;
+        margin-top: 14px;
+    }
+}

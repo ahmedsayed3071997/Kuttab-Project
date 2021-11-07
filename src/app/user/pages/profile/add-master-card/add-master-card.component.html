@@ -1,0 +1,63 @@
+<div class="page">
+    <div class="header">
+        إضافة بطاقه جديده
+    </div>
+    <div class="pageBody col-xl-11">
+      <form class="order-1" [formGroup]="cardForm">
+            <div class="header mt-5">
+               ادخل بيانات البطاقة يدويا
+            </div>
+            <div class="form-group mt-4">
+                <label for="cardNum">رقم البطاقة </label>
+                <div class="input-group">
+                    <!-- <div class="ml-2">
+                        <img src="../../../../../assets/images/mastercard.png" alt="master-card">
+                    </div> -->
+                    <input formControlName="card_number" type="number" class="form-control" placeholder="ادخل رقم البطاقه">
+                </div>
+                <div *ngIf="cardFormRef.card_number.touched && cardFormRef.card_number.invalid">
+                    <div class="error_message_control_form" *ngIf="cardFormRef.card_number.errors?.required"> رقم البطاقة اجباري</div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="cardHolderName">اسم حامل البطاقة</label>
+                <input formControlName="holder_name" type="text" class="form-control" placeholder="اسم حامل البطاقه">
+                <div *ngIf="cardFormRef.holder_name.touched && cardFormRef.holder_name.invalid">
+                    <div class="error_message_control_form" *ngIf="cardFormRef.holder_name.errors?.required">  اسم حامل اجباري</div>
+                </div>
+            </div>
+            <div class="form-row mt-3 justify-content-between">
+                <div class="form-group col">
+                    <label for="cvv"> تاريخ الصلاحية</label>
+                    <input formControlName="cvv" type="number" class="form-control" placeholder="تاريخ الصلاحيه">
+                    <div *ngIf="cardFormRef.cvv.touched && cardFormRef.cvv.invalid">
+                        <div class="error_message_control_form" *ngIf="cardFormRef.cvv.errors?.required">   تاريخ الصلاحية اجباري</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <div class="form-group col" style="text-align: left;">
+                        <label for="expireDate" >تاريخ الانتهاء </label>
+                        <div class="d-flex justify-content-end">
+                            <div class="order-1">
+                                <input style="width: 43px;" formControlName="expire_year" type="text"  maxlength="2" class="form-control" placeholder="yy">
+                            </div>
+                            <div class="order-2 mx-3 align-self-center">
+                                /
+                            </div>
+                            <div class="order-3">
+                                <input style="width: 43px;" formControlName="expire_month" type="text"  maxlength="2" class="form-control" placeholder="mm">
+                            </div>
+                        </div>
+                        <div *ngIf="cardFormRef.expire_month.touched && cardFormRef.expire_month.invalid || cardFormRef.expire_year.touched && cardFormRef.expire_year.invalid">
+                            <div class="error_message_control_form" *ngIf="cardFormRef.expire_month.errors?.required">التاريخ اجبارى</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btnContainer col-xl-10 mt-3 mr-4">
+                <button [disabled]="cardForm.invalid" class="btn addButton" (click)="addCard()">إضافة بطاقة جديد</button>
+                <a class="btn backButton" [routerLink]="['/user/profile/credit-card']">العوده</a>
+            </div>
+        </form>
+       </div>
+</div>

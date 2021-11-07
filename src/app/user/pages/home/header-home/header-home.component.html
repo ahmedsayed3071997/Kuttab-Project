@@ -1,0 +1,48 @@
+<div class="container-fluid" style="overflow: hidden;">
+  <div class="row">
+    <div class="col-md-6">
+      <div style="min-height: 500px;">
+        <img  class="img-book w-100 h-100" src="assets/images/professional-hardcover-book.png">
+        <div class="header-section">
+          <h1>مرحبا بك ,, في أكبر مكتبة للكتب
+            <br>
+            والروايات بالوطن العربي
+          </h1>
+          <form class="text-center" style="margin-top: 30px;">
+            <mat-form-field class="example-full-width">
+              <!-- <mat-label>اسم الكتاب</mat-label> -->
+
+              <input type="text"
+                     placeholder="اسم الكتاب"
+                     aria-label="Number"
+                     matInput
+                     [formControl]="searchBook"
+                     [matAutocomplete]="auto">
+              <mat-autocomplete (optionSelected)="getBook($event.option.value)" autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let book of books" [value]="book.id">
+                  {{book.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <!-- <input type="text" [(ngModel)]="searchBook" name="search" placeholder="اسم الكتاب"> -->
+            <button class="btn" (click)="getBooks()" >
+              <span>
+                بحث
+              </span>
+            </button>
+          </form>
+          <h6>أكثر من 100 الف كتاب بانتظارك</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="cover">
+        <img class="img-logo"src="assets/images/logo.png">
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

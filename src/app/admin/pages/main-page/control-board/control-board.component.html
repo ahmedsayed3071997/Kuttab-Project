@@ -1,0 +1,34 @@
+<div class="page">
+    <div class="head">
+        <span class="spe">مرحبا</span>  مدير النظام
+    </div>
+    <div class="subHead">
+        من خلال لوحه التحكم الخاصه بك يمكنك اضافه كتب او اقسام او مؤلفين جدد وكذلك يمكنك متابعه الاحصائيات الخاصه بالموقع
+    </div>
+    <div class="d-flex flex-wrap justify-content-center" style="margin-top: 45px;">
+        <div class="order-1">
+            <div class="d-flex card card1 justify-content-center" [routerLink]="['/admin/all-book']">
+                <div class="order-1 text-center">
+                    <span class="icon-Icon-metro-books"></span>
+                </div>
+                <div class="order-2 text-center iconText">كل الكتب</div>
+            </div>
+        </div>
+        <div class="order-2">
+            <div class="d-flex card card2 justify-content-center" [routerLink]="['/admin/all-section']">
+                <div class="order-1 text-center">
+                    <span class="icon-Icon-map-department-store"></span>
+                </div>
+                <div class="order-2 text-center iconText"> الاقسام</div>
+            </div>
+        </div>
+        <div class="order-3">
+            <div class="d-flex card card3 justify-content-center" [routerLink]="['/admin/all-author']">
+                <div class="order-1 text-center">
+                    <span class="icon-Icon-ionic-md-person-add"></span>
+                </div>
+                <div class="order-2 text-center iconText"> المؤلفين</div>
+            </div>
+        </div>
+    </div>
+</div>

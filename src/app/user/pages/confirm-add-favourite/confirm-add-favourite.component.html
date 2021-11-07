@@ -1,0 +1,20 @@
+
+
+
+<div class="modal-body">
+  <h1 class="text-center" style="color: #111E6C;"> هل انت متاكد من اضافه هذا الكتاب الى مفضلاتك</h1>
+  <div class="row justify-content-center">
+    <div class="modal-footer">
+      <div class="col">
+        <button (click)="addToFavorite()" [disabled]="buttunAdd" class="w-100  add-to-cart" type="submit">
+          اضف
+        </button>
+      </div>
+      <div class="col">
+        <button (click)="closeModal()" class="w-100  close-add" type="button">
+          اغلاق
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

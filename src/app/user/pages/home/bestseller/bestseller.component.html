@@ -1,0 +1,31 @@
+<div class="container sections">
+  <div class="row ">
+    <div class="col-12 d-flex justify-content-between">
+      <div>
+        <div class="title-topic">
+
+        </div>
+        <div class="title-topic-text">الاكثر مبيعا</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-6" *ngFor="let book of books"  >
+      <div class="book" >
+        <div class="icon-cover" *ngIf="user && !book.is_favorite" (click)="openModalConfirmAddToFavorite(book.id)"  ><span class="icon-heart-o"></span></div>
+        <div class="icon-cover" *ngIf="user && book.is_favorite" (click)="openModalConfirmDeleteFromFavorite(book.id)" ><span class="icon-Icon-awesome-heart"></span></div>
+        <img class="w-100" [routerLink]="['/user/book', book.id]" src="{{book?.photo?.path}}" (error)="book.photo.path = 'assets/images/book1.png'">
+        <div class="book-details">
+          <h5 class="book-title">
+            <a  [routerLink]="['/user/book', book.id]" matTooltip="{{book.name}}"
+            [innerHtml]="(book.name.length >= 15) ? (book.name | slice:0:15):(book.name)"></a></h5>
+          <h6 class="name-title"><span>المؤلف :- </span><a [routerLink]="['/user/auther', book?.author?.id]">{{book?.author?.full_name}}</a></h6>
+          <div class="d-flex justify-content-between">
+            <span class="price">{{book.price}} درهم</span>
+            <a class="card"  (click)="openModalConfirmAddToCart(book)"  ><span class="icon icon-cart"></span> <span class="icon icon-plus"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

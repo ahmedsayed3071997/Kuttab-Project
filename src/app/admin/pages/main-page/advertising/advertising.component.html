@@ -1,0 +1,52 @@
+
+<div class="page container-fluid">
+  <div class="row" *ngIf="advertising.length < 4"  >
+    <div class="col-lg-8">
+        <div class="form-group" style="margin-bottom: 0px;margin-top: 20px;">
+            <label for="fileupload">صوره الاعلان</label>
+            <label for="fileupload" *ngIf="!image">
+                <div>
+                    +
+                </div>
+            </label>
+            <label for="fileupload" *ngIf="image">
+                <div>
+                    <img style="width: inherit;height: inherit;" [src]="image" alt="notfound">
+                </div>
+            </label>
+            <input (change)="onFileChange($event)" id="fileupload" 
+            type="file" accept=".jpg, .jpeg" style="visibility: hidden;">
+        </div>
+    </div>
+    <div class="col-12" >
+      <div class="bntcontainer text-center mb-5">
+        <button (click)="addAdvertising()">اضف</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container-fluid" style="margin-top: 20px;">
+
+  <div class="row" *ngFor="let adds of advertising" style="padding-bottom: 20px;">
+    <div class="col-md-9 col-sm-6 " >
+      <img style="width: 300px;height: 200px;" src="{{adds?.photo?.path}}">
+    </div>
+    <div class="col-md-3 col-sm-6" style="margin:auto;">
+      <button
+        (click)="deleteAdvertising(adds?.id)"
+        style="
+        font-size: 16px;
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 8px;
+        background: #fff;
+        border: 1px solid;"
+        class="w-100"
+        id="deleteBtn"
+        type="submit">
+        مسح
+      </button>
+    </div>
+  </div>
+</div>

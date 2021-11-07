@@ -1,0 +1,19 @@
+<div [@routeAnimations]="authRout.isActivated ? authRout.activatedRoute : ''" style="height: 100%;">
+    <router-outlet #authRout="outlet"></router-outlet>
+</div>
+
+<ngx-ui-loader 
+[fgsColor]="'#111e6c'"
+[fgsColor]="'#111e6c'"
+[bgsOpacity]="1"
+[fgsPosition]="'center-center'"
+[fgsSize]="100"
+[fgsType]="'three-strings'"
+[overlayColor]="'rgba(255, 255, 255, 0.8)'"
+[hasProgressBar]="true"
+></ngx-ui-loader>
+
+
+
+
+

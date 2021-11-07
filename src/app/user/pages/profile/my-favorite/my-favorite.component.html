@@ -1,0 +1,35 @@
+<div class="page" style="overflow: auto ; height: 550px;">
+    <table class="table">
+        <thead class="tableHead">
+          <tr style="width: 100%;">
+            <th style="width: 40%;">عنوان الكتاب</th>
+            <th style="width: 25%;">المولف</th>
+            <th style="width: 25%;">سعر الكتاب</th>
+            <th style="width: 10%;"></th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr  style="width: 40%;" *ngFor="let fav of favourites" >
+       
+                <img style="width: 100px;" src="{{fav?.book?.photo?.path}}" alt="">
+                <h5 style="display: inline-block; margin-top: 5%;"  matTooltip="{{fav?.book?.name}}">
+                  <a style="margin: 5px 5px 5px 0px;"
+                  [innerHtml]="(fav?.book?.name | slice:0:15)"
+                  [routerLink]="['/user/book', fav?.book?.id]" >{{fav?.book?.name}}</a> </h5>
+      
+            <td style="width: 25%;">
+                <h5 style="margin-top: 32%;"><a [routerLink]="['/user/auther', fav.book?.author?.id]">{{fav?.book?.author?.full_name}}</a> </h5>
+            </td>
+            <td style="width: 25%;">
+                <h5 style="margin-top: 32%;">{{fav?.book?.price_after_discount}} <span style="display: inline-block; margin-right: 5px;">درهم</span></h5>
+            </td>
+            <td  style="padding-top: 34px; width: 10%;">
+                <div class="deleteCont" (click)="openModalConfirmDeleteFromFavorite(fav?.book.id)" >
+                    X
+                </div>
+            </td>
+          </tr>
+          <hr>
+        </tbody>
+      </table>
+</div>

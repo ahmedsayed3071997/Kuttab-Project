@@ -1,0 +1,168 @@
+<div class="page">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="heading">
+                <h6 *ngIf="!id">كتاب جديد</h6>
+                <h6 *ngIf="id"> تعديل الكتاب</h6>
+            </div>
+        </div>
+    </div>
+   <form [formGroup]="addBookForm">
+    <div class="row" style="margin-bottom: 0px; height: 80px;">
+        <div class="col-lg-8">
+            <div class="form-group">
+                <label for="fileupload">صوره الكتاب</label>
+                <label for="fileupload" *ngIf="!image">
+                    <div>
+                        +
+                    </div>
+                </label>
+                <label for="fileupload" *ngIf="image">
+                    <div>
+                        <img style="width: inherit;height: inherit;" [src]="image" alt="notfound">
+                    </div>
+                </label>
+                <input (change)="onFileChange($event)" id="fileupload" type="file" accept=".jpg, .jpeg" style="visibility: hidden;">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group ml-3">
+                <label for="input">اسم الكتاب</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="ادخل اسم الكتاب">
+                <div *ngIf="addBookFormRef.name.touched && addBookFormRef.name.invalid">
+                    <div class="error_message_control_form" *ngIf="addBookFormRef.name.errors?.required">اسم الكتاب اجباري</div>
+                    <div class="error_message_control_form" *ngIf="!addBookFormRef.name.errors?.required && addBookFormRef.name.errors?.minlength"> اقل عدد 3 حروف</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-lg-8">
+        <div class="form-group ml-3">
+            <label for="textfiled">وصف الكتاب</label>
+            <textarea formControlName="description"  class="form-control" id="textfiled" rows="5" placeholder="ادخل وصف الكتاب"></textarea>
+            <div *ngIf="addBookFormRef.description.touched && addBookFormRef.description.invalid">
+                <div class="error_message_control_form" *ngIf="addBookFormRef.description.errors?.required">  الوصف اجبار </div>
+                <div class="error_message_control_form" *ngIf="!addBookFormRef.description.errors?.required && addBookFormRef.description.errors?.minlength">اقل عدد 6 حروف</div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group ml-3">
+                <label for="select">اسم المؤلف</label>
+                <div class="selectBox">
+                   <div class="arrowCarrier">
+                        <span class="icon-bxs-chevron-right-1 arrow "></span>
+                   </div>
+                    <select  formControlName="author_id" class="form-control select" id="select" style="border-radius: 8px;padding-bottom: 2px;padding-top: 2px;">
+                        <option value="" selected disabled>اختار اسم المؤلف</option>
+                        <ng-container *ngFor="let item of allAuthorData">
+                         <option [value]="item.id">{{item.full_name}}</option>
+                       </ng-container>
+
+                      </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-8">
+            <div class="form-group ml-3">
+                <label for="input"> الاصدار</label>
+                <input formControlName="version" type="number" class="form-control" placeholder="ادخل تاريخ الاصدار">
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-8">
+            <div class="form-group ml-3">
+                <label for="select">تصنيف الكتاب</label>
+                <div class="selectBox">
+                    <div class="arrowCarrier" style="margin-top: -11%">
+                         <span class="icon-bxs-chevron-right-1 arrow "></span>
+                    </div>
+                     <select formControlName="category_id" class="form-control select" id="select" style="border-radius: 8px;padding-bottom: 2px;padding-top: 2px;">
+                      <option  value="" selected disabled>اختار القسم</option>
+                        <ng-container *ngFor="let item of allCategoryData">
+                          <option [value]="item.id">{{item.name}}</option>
+                        </ng-container>
+                       </select>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-8">
+            <div class="form-group">
+                <label for="">سعر الكتاب</label>
+               <div class="input-group">
+                <input formControlName="price" type="number" class="form-control" style="display: inline;" placeholder="ادخل السعر">
+                <div class="input-group-prepend" >
+                    <div class="input-group-text"style="background-color: #fff;border-style: none;">
+                    درهم
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-4 col-md-8">
+            <div class="form-group">
+                <label for=""> نسبه الخصم</label>
+               <div class="input-group">
+                <input formControlName="discount" min="0" type="number" class="form-control" style="display: inline;" placeholder="0">
+                <div class="input-group-prepend" >
+                    <div class="input-group-text"style="background-color: #fff;border-style: none;font-size:20px">
+                        %
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="addBookFormRef.discount.value">
+        <mat-form-field appearance="fill">
+            <mat-label>تاريخ انتهاء العرض</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="closing_date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group">
+                <label for="select">عدد النسخ المتاحه</label>
+                <div class="input-group">
+                    <input formControlName="number_of_copies" type="number" class="form-control" style="display: inline;" placeholder="0">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"style="background-color: #fff;border-style: none;">
+                            نسخة
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="form-group">
+                <label for="select">دار النشر</label>
+                <div class="input-group">
+                    <input formControlName="publish_house" type="text" class="form-control" style="display: inline;" placeholder="ادخل دار النشر">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="bntcontainer">
+                <button *ngIf="!id" [disabled]="addBookForm.invalid" (click)="addBook()">اضف كتاب</button>
+                <button *ngIf="id" [disabled]="addBookForm.invalid" (click)="editBook()">تعديل كتاب</button>
+                <button (click)="test()" class="cancel-btn">الغاء </button>
+            </div>
+        </div>
+    </div>
+   </form>
+</div>

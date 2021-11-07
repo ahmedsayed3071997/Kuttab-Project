@@ -1,0 +1,117 @@
+<div class="container h-100">
+    <div class="row no-gutters   h-100" style="align-items: center;">
+        <div class="col-12">
+            <div class="row  no-gutters page">
+                <div class="col-md-6 col-sm-12 text-center" style="padding: 0px 6%;">
+                    <div class="head">مرحبا بك في موقع</div>
+                    <div class="logo">
+                        <img [routerLink]="['/user']" style="cursor: pointer;" src="../../../../assets/images/logo.png" alt="">
+                    </div>
+                    <form class="formLogin" [formGroup]="signinForm">
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="containInut edit">
+                                    <input formControlName="first_name" placeholder="الاسم الاول" type="text" class="input">
+                                   <div *ngIf="signinFormRef.first_name.touched && signinFormRef.first_name.invalid">
+                                     <div class="error_message_control_form" *ngIf="signinFormRef.first_name.errors?.required">الاسم الاول اجبارى</div>
+                                     <div class="error_message_control_form" *ngIf="!signinFormRef.first_name.errors?.required && signinFormRef.first_name.errors?.minlength">اقل عدد 3 حروف</div>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="containInut edit">
+                                    <input formControlName="last_name" placeholder="الاسم الاخير" type="text" class="input">
+                                    <div *ngIf="signinFormRef.last_name.touched && signinFormRef.last_name.invalid">
+                                        <div class="error_message_control_form" *ngIf="signinFormRef.last_name.errors?.required">الاسم الاخير اجبارى</div>
+                                        <div class="error_message_control_form" *ngIf="!signinFormRef.last_name.errors?.required && signinFormRef.last_name.errors?.minlength">اقل عدد 3 حروف</div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        
+                        <div class="containInut">
+                            <input formControlName="email" placeholder="test@gmail.com" type="email" class="input" style="direction: ltr;">
+                            <span class="icon icon-Icon-awesome-user"></span>
+                            <div *ngIf="signinFormRef.email.touched && signinFormRef.email.invalid">
+                                <div class="error_message_control_form" *ngIf="signinFormRef.email.errors?.required">الايميل اجبارى</div>
+                                <div class="error_message_control_form" *ngIf="!signinFormRef.email.errors?.required && signinFormRef.email.errors?.email">الايميل غير صحيح</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="containInut text-right col-12">
+                                <label>رقم الهاتف</label>
+                                <br>
+                                <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                                    [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                                    [selectedCountryISO]="CountryISO.India" 
+                                    [maxLength]="'15'"
+                                    [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                                    [numberFormat]="PhoneNumberFormat.National" name="phone" formControlName="phone">
+                                </ngx-intl-tel-input>
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="col-12" *ngIf="signinFormRef.phone.touched && signinFormRef.phone.invalid">
+                                <div class="error_message_control_form" 
+                                *ngIf="signinFormRef.phone.errors?.required">رقم الهاتف اجباري</div>
+                            </div>
+                            <div class="col-12" *ngIf="signinFormRef.phone.touched && signinFormRef.phone.invalid">
+                                <div class="error_message_control_form" 
+                                *ngIf="signinFormRef.phone.errors?.validatePhoneNumber">رقم الهاتف غير صحيح</div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-right radioButton">
+                            <div class="order-1">
+                                <mat-radio-group formControlName="gender" aria-label="Select an option" >
+                                    <mat-radio-button class="ml-4" value="male">ذكر</mat-radio-button>
+                                    <mat-radio-button value="female">انثى</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="containInut">
+                            <input formControlName="password" #pass1 placeholder="ادخل كلمة السر" type="password" class="input" style="direction: ltr;">
+                            <span class="icon icon-Icon-awesome-lock"></span>
+                            <span *ngIf="pass1.type == 'password'" (click)="pass1.type = 'text'" class="icon2 icon-Icon-ionic-ios-eye"></span>
+                            <span *ngIf="pass1.type == 'text'" (click)="pass1.type = 'password'" class="icon2 icon-eye-blocked"></span>
+                            <div *ngIf="signinFormRef.password.touched && signinFormRef.password.invalid">
+                                <div class="error_message_control_form" *ngIf="signinFormRef.password.errors?.required">الرقم السرى اجبارى</div>
+                              </div>
+                        </div>
+                        <div class="containInut">
+                            <input formControlName="confirm_password" #pass2 placeholder="تاكيد كلمة السر" type="password" class="input" style="direction: ltr;">
+                            <span class="icon icon-Icon-awesome-lock"></span>
+                            <span *ngIf="pass2.type == 'password'" (click)="pass2.type = 'text'" class="icon2 icon-Icon-ionic-ios-eye"></span>
+                            <span *ngIf="pass2.type == 'text'" (click)="pass2.type = 'password'" class="icon2 icon-eye-blocked"></span>
+                            <div *ngIf="signinFormRef.confirm_password.touched && signinFormRef.confirm_password.invalid">
+                                <div class="error_message_control_form" *ngIf="signinFormRef.confirm_password.errors?.required">تاكيد رقم السر اجبارى</div>
+                                <div class="error_message_control_form" *ngIf="!signinFormRef.confirm_password.errors?.required && signinFormRef.confirm_password.errors?.confirmedPassword">تاكيد رقم السر غير صحيح</div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="login" (click)="register()"> انشاء عضويه</button>
+                        </div>
+                    </form>
+                    <div class="dontHaveAccount">
+                        تمتلك حساب بالفعل ؟  <span class="spe" [routerLink]="['/auth/login']">سجل دخول</span>
+                    </div>
+                    <!-- <div class="separator"><span class="text">او</span></div>
+                    <div class="d-flex justify-content-center icons">
+                        <div class="order-1 ml-4">
+                            <span class="iconF icon-facebook2"></span>
+                        </div>
+                        <div class="order-2">
+                            <span class="iconG icon-google-plus2"></span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-md-6 col-sm-12 hide_sm">
+                    <div class="image">
+                        <img width="100%" src="../../../../assets/images/signin.png" alt="">
+                        <div class="centered"> التسجيل</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

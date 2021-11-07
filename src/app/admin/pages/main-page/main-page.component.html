@@ -1,0 +1,87 @@
+<div class="page">
+    <div class="row no-gutters">
+        <div class="col-md-4 col-12 mb-2">
+            <div class="backgroundPage miniWidth" style="padding: 16px;">
+                <div class="d-flex">
+                    <div class="order-1 image">
+                        <div class="d-flex justify-content-center" style="height: inherit;">
+                            <div class="order-1 align-self-center">
+                                <img src="../../../../assets/images/logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-2 align-self-center ">
+                        <div class="textTitle">لوحه تحكم <span class="spe">مدير النظام</span></div>
+                    </div>
+                </div>
+                <div class="control" style="margin-top: 56px;">
+                    <div class="d-flex" style="cursor: pointer;"
+                    [class.activeColor] = "router.url === '/admin/control-board' ||
+                     router.url === '/admin/all-book' ||
+                     router.url === '/admin/all-section' ||
+                     router.url === '/admin/all-author'"
+                    >
+                        <div class="order-1">
+                            <span class="icon icon-th-list"></span>
+                        </div>
+                        <div class="order-2 titleIcon" >
+                            <a [routerLink]="['control-board']">لوحه التحكم</a>
+                        </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/admin/add-book'">
+                        <div class="order-1">
+                            <span class="icon icon-Icon-metro-books" style="font-size: 16px;"></span>
+                        </div>
+                        <div class="order-2 titleIcon" >
+                            <a [routerLink]="['add-book']"> إضافة كتاب جديد</a>
+                        </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/admin/add-section'">
+                        <div class="order-1">
+                            <span class="icon icon-Icon-map-department-store"></span>
+                        </div>
+                        <div class="order-2 titleIcon" >
+                            <a [routerLink]="['add-section']">   اضافة قسم جديد</a>
+                        </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/admin/add-author'">
+                        <div class="order-1">
+                            <span class="icon icon-Icon-ionic-md-person-add" style="font-size: 17px;"></span>
+                        </div>
+                        <div class="order-2 titleIcon" >
+                            <a [routerLink]="['add-author']">   اضافة مؤلف جديد</a>
+                        </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/admin/advertising'">
+                        <div class="order-1">
+                            <span class="icon icon-Icon-ionic-ios-stats"></span>
+                        </div>
+                        <div class="order-2 titleIcon" >
+                            <a [routerLink]="['advertising']">   الاعلانات</a>
+                        </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex" style="cursor: pointer;">
+                        <div class="order-1">
+                            <span class="icon icon-Icon-metro-exit"></span>
+                        </div>
+                        <div class="order-2 titleIcon" (click)="auth.logout()">
+                            <a>   تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-12">
+                <div [@routeAnimations]="o.isActivated ? o.activatedRoute : ''">
+                    <div class="backgroundPage">
+                        <router-outlet #o="outlet"></router-outlet>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

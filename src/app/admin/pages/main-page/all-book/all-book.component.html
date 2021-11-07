@@ -1,0 +1,123 @@
+<div class="page">
+    <div class="row heading">
+        <p>كل الكتب</p>
+    </div>
+    <div class="row formRow">
+        <form [formGroup]="filterBookForm">
+            <div class="form-group mr-3">
+                <h6> القسم</h6>
+                <select formControlName="category_id" class="select">
+                    <option selected value="">اختار قسم</option>
+                    <ng-container *ngFor="let item of allCategoryData">
+                        <option [value]="item.id">{{item.name}}</option>
+                      </ng-container>
+                </select>
+            </div>
+            <div class="form-group mr-3">
+                <h6> اسم المؤلف</h6>
+                <select formControlName="author_id" class="select">
+                    <option selected value="">اختار مؤلف</option>
+                    <ng-container *ngFor="let item of allAuthorData">
+                        <option [value]="item.id">{{item?.full_name}}</option>
+                      </ng-container>
+                </select>
+            </div>
+            <div class="form-group mr-3">
+                <h6> سنة الاصدار</h6>
+                <input formControlName="version" style="width: 180px;height: 30px;"  type="text" class="form-control" placeholder="ادخل سنة الاصدار">
+            </div>
+            <div class="form-group mr-3">
+                <div class="btncontainer">
+                    <button (click)="getAllBook()" class="btn btn-primary" >فلترة</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row filterRow">
+            <!-- <p>نتيجة الفلترة <span>:- قسم الادب</span></p> -->
+    </div>
+    <div class="row controwparent justify-content-xl-around justify-content-lg-around  justify-content-md-center ">
+        <div class="row contentRow me-0 mb-4" *ngFor="let item of allBooks">
+            <div class="box" >
+                <div class="col-3 img-cont">
+                    <img [src]="item.photo.path" alt="Book image">
+                </div>
+                <div class="col">
+                   <div class="row">
+                       <h6 [routerLink]="['/user/book', item.id]" matTooltip="{{item.name}}">{{item.name.slice(0, 15)}}</h6>
+
+                   </div>
+                   <div class="row">
+                        <p [routerLink]="['/user/auther', item?.author?.id]">المؤلف :- <span>{{item?.author?.full_name.slice(0, 15)}}</span></p>
+                   </div>
+                    <div class="row">
+                       <div class="custom">
+                            <div>قسم الكتاب</div>
+                            <div>{{item.category.name}}</div>
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom">
+                            <div>عدد النسخ المتوفرة </div>
+                            <div>{{item.number_of_copies}}</div>
+                       </div>
+                    </div>
+                    <div class="row">
+                        <div class="custom">
+                            <div> سنة الاصدار</div>
+                            <div>{{item.version}}</div>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <span style="color: #979797;">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" style="background: transparent;border: none;">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item [routerLink]="['/user/book', item.id]">
+                                <mat-icon>visibility</mat-icon>
+                                <span>عرض</span>
+                              </button>
+                            <button mat-menu-item [routerLink]="['/admin/edit-book',item.id]">
+                              <mat-icon>edit</mat-icon>
+                              <span>تعديل</span>
+                            </button>
+                            <button mat-menu-item (click)="openModalDeleteBook(item.id)">
+                              <mat-icon>delete_forever</mat-icon>
+                              <span>مسح</span>
+                            </button>
+                           
+                          </mat-menu>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row justify-content-center ">
+       <div class="footernav">
+           <div class="links">
+               <a href="">
+                <span class="icon-bxs-chevron-right-4"></span>
+               </a>
+           </div>
+           <div class="links">
+                <a href="">1 </a>
+            </div>
+            <div class="links">
+                <a href="">2 </a>
+            </div>
+            <div class="links">
+                <a href="">3 </a>
+            </div>
+            <div class="links">
+                <a href="">4 </a>
+            </div>
+            <div class="links">
+                <a href="">
+                    <span class="icon-bxs-chevron-right-5"></span>
+                </a>
+            </div>
+       </div>
+    </div> -->
+</div>

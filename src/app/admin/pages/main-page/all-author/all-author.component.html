@@ -1,0 +1,38 @@
+<div class="page" style="position: relative;">
+    <ngx-ui-loader [loaderId]="'all-author'"></ngx-ui-loader>
+    <div class="row">
+        <div class="col-2 heading">
+            <p>المؤلفين</p>
+        </div>
+        <div class="col-lg-7  searchCol">
+            <div class="input-group">
+                <div class="form-outline">
+                  <input (keyup.enter)="getData(search.value)" #search type="search" id="form1" class="form-control" />
+                  <i class="fas fa-search"></i>
+                </div>
+                <button (click)="getData(search.value)" type="button" class="btn btn-primary">
+                    بحث
+                </button>
+              </div>
+        </div>
+        <div class="col btnCol text-left ml-4">
+            <button class="btn" [routerLink]="['/admin/add-author']">
+                اضافه
+                <span class="icon-Icon-ionic-md-person-add"></span>
+            </button>
+        </div>
+    </div>
+    <div class="row mt-5 d-flex justify-content-around classTest"  >
+        <div class="box" *ngFor="let item of allAuthor">
+            <div class="phtotont">
+                <img [src]="item?.photo?.path" alt="">
+            </div>
+            <h6 [routerLink]="['/user/auther', item?.id]" matTooltip="{{item.full_name}}">{{item.full_name.slice(0, 10)}}</h6>
+            
+            <p>كاتب و روائى</p>
+            <a style="display: block;" [routerLink]="['/user/auther',item.id]" class="ms-5">تفاصيل الكاتب</a>
+            <a style="display: inline-block;color: blue; cursor: pointer;" [routerLink]="['/admin/edit-author',item.id]" class="ms-5">تعديل </a>
+            <a style="display: inline-block;color: red; cursor: pointer;" (click)="openModalDeleteAuthor(item.id)" class="ms-5">حذف </a>
+        </div>
+    </div>
+</div>

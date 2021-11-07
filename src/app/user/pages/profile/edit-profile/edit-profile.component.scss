@@ -1,0 +1,93 @@
+.page {
+    padding-top: 15px;
+    .header {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+        font: normal normal bold 20px/37px Cairo;
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;
+    }
+    .edit-profile-form {
+        label {
+            font: normal normal normal 16px/32px Cairo;
+            letter-spacing: 0px;
+            color: #000000;
+            opacity: 1;
+        }
+        input {
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #D9D9F3;
+            border-radius: 8px;
+            opacity: 1;
+           
+        }
+        ::placeholder {
+            font: normal normal normal 14px/32px Cairo;
+            letter-spacing: 0px;
+            color: #9A9A9A;
+            opacity: 1;
+        }
+        :-ms-input-placeholder {
+            font: normal normal normal 14px/32px Cairo;
+            letter-spacing: 0px;
+            color: #9A9A9A;
+            opacity: 1;
+        }
+        ::-ms-input-placeholder {
+            font: normal normal normal 14px/32px Cairo;
+            letter-spacing: 0px;
+            color: #9A9A9A;
+            opacity: 1;
+        }
+        a.newNumber {
+            font: normal normal normal 14px/32px Cairo;
+            letter-spacing: 0px;
+            color: #111E6C;
+            opacity: 1;
+            margin-right: 30px;
+        }
+    }
+    .btncontainer button {
+        width: 122px;
+        height: 41px;
+        background: #111E6C 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000026;
+        border-radius: 8px;
+        border-color: #fff;
+        opacity: 1;
+        color: #fff
+    }
+    .btncontainer button:hover {
+        background: #fff;
+        color: #111e6c;
+        transition-delay: .1s;
+    }
+}
+
+
+
+
+
+@import"/src/assets/globalStyle/globalStyle.scss";
+@media screen and(max-width:$xl){
+}
+@media screen and(max-width:$lg){
+    
+}
+@media screen and(max-width:$md){
+    .page {
+        .linkspan {
+            display: block !important;
+            margin-right: 25px !important;
+        }
+    }
+}
+@media screen and(max-width:$sm){
+    .page {
+        .linkspan {
+            display: block !important;
+            margin-right: 25px !important;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<div class="container h-100" >
+    <div class="row no-gutters   h-100" style="align-items: center;">
+        <div class="col-12">
+            <div class="row  no-gutters page">
+                <div class="col-md-6 col-sm-12 text-center" style="padding: 0px 6%;">
+                    <div class="head">مرحبا بك في موقع</div>
+                    <div class="logo">
+                        <img [routerLink]="['/user']" style="cursor: pointer;" src="../../../../assets/images/logo.png" alt="">
+                    </div>
+                    <form class="formLogin" [formGroup]="loginForm">
+                        <div class="containInut">
+                            <input formControlName="email" placeholder="Email or Phone Number" type="text" class="input" style="direction: ltr;">
+                            <span class="icon icon-Icon-awesome-user"></span>
+                        </div>
+                        <div *ngIf="loginFormRef.email.touched && loginFormRef.email.invalid">
+                            <div class="error_message_control_form" *ngIf="loginFormRef.email.errors?.required">البريد الالكتروني اجباري</div>
+                            <div class="error_message_control_form" *ngIf="!loginFormRef.email.errors?.required&&loginFormRef.email.errors?.email">  ادخل ايميل صحيح </div>
+                        </div>
+                        <div class="containInut">
+                            <input formControlName="password" #pass placeholder="*********" type="password" class="input" style="direction: ltr;">
+                            <span class="icon icon-Icon-awesome-lock"></span>
+                            <span *ngIf="pass.type == 'password'" (click)="pass.type = 'text'" class="icon2 icon-Icon-ionic-ios-eye"></span>
+                            <span *ngIf="pass.type == 'text'" (click)="pass.type = 'password'" class="icon2 icon-eye-blocked"></span>
+                        </div>
+                        <div class="forgerPassword" >
+                            <span [routerLink]="['/auth/forgetPassword']">هل نسيت كلمة المرور ؟</span>
+                        </div>
+                        <div class="actions">
+                            <button class="login" type="button" (click)="login()">تسجيل الدخول</button>
+                        </div>
+                    </form>
+                    <div class="dontHaveAccount">
+                        لا تمتلك حساب ؟ <span class="spe" [routerLink]="['/auth/signin']">سجل الان</span>
+                    </div>
+                    <!-- <div class="separator"><span class="text">او</span></div>
+                    <div class="d-flex justify-content-center icons">
+                        <div class="order-1 ml-4">
+                            <span class="iconF icon-facebook2"></span>
+                        </div>
+                        <div class="order-2">
+                            <span class="iconG icon-google-plus2"></span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-md-6 col-sm-12 hide_sm">
+                    <div class="image">
+                        <img width="100%" src="../../../../assets/images/login.png" alt="">
+                        <div class="centered">تسجيل الدخول</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,18 @@
+.header{
+    background: var(--unnamed-color-111e6c) 0% 0% no-repeat padding-box;
+    background: #111E6C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 35px #00000012;
+    border-radius: 0px 0px 30px 30px;
+    opacity: 1;
+    padding: 11px;
+    .image{
+        padding: 5px 19px;
+        border-radius: 15px;
+        background-color: #ffffff;
+       
+        img{
+            width: 42px;
+             height: 67px;
+        }
+    }
+}

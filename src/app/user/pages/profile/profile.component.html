@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="page">
+        <div class="d-flex">
+            <div class="order-1 text">
+            <span [routerLink]="['/user']">الصفحة الرئيسيه </span>/ <span [routerLink]="['/user/profile']" class="spe"> حسابى</span>
+            </div>
+        </div>
+    </div>
+    <div class="mainPage">
+        <div class="page">
+            <div class="row no-gutters">
+                <div class="col-md-4 col-12 mb-2">
+                    <div class="backgroundPage miniWidth" style="padding: 16px;">
+                        <div class="d-flex">
+                            <div class="order-1 image">
+                                <div class="d-flex justify-content-center" style="height: inherit;">
+                                    <div class="order-1 align-self-center">
+                                          <div class="profileImage" (click)="file.click()">
+                                            <img *ngIf="!auth.user?.photo?.path" src="../../../../assets/images/male.png" alt="Avatar" class="image" style="width:100%;">
+                                            <img *ngIf="auth.user?.photo?.path" [src]="auth.user?.photo?.path" alt="Avatar" class="image" style="width:100%;height: 100px;">
+                                            <div class="middle">
+                                              <div class="text">+</div>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-2 align-self-center ">
+                                <div class="textTitle">{{auth.user?.fullname}}</div>
+                                <div class="descTitle" *ngIf="auth.user?.country || auth.user?.city">{{auth.user?.country}} / {{auth.user?.city}}</div>
+                            </div>
+                        </div>
+                        <input #file type="file" style="visibility: hidden;height: 0px;" accept=".jpg, .jpeg" (change)="onFileChange($event)">
+                        <div class="control" style="margin-top: 56px;">
+                            <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile'">
+                                <div class="order-1">
+                                    <span class="icon icon-th-list"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['/user/profile']"> الحساب الشخصي</a>
+                                </div>
+                            </div>
+                            <hr class="my-1">
+                            <div *ngIf="!auth.isAdmin" class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile/edit'">
+                                <div class="order-1">
+                                    <span class="icon icon-edit"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['edit']">تعديل الحساب</a>
+                                </div>
+                            </div>
+                            <!-- <hr class="my-1">
+                            <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile/credit-card'">
+                                <div class="order-1">
+                                    <span class="icon icon-credit-card"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['credit-card']">بطاقة الائتمان</a>
+                                </div>
+                            </div> -->
+                            <hr class="my-1">
+                            <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile/address'">
+                                <div class="order-1">
+                                    <span class="icon icon-location"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['address']">عنواني</a>
+                                </div>
+                            </div>
+                            <hr class="my-1">
+                            <!-- <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile/purchases'">
+                                <div class="order-1">
+                                    <span class="icon icon-cart"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['purchases']">   المشتريات</a>
+                                </div>
+                            </div> -->
+                            <hr class="my-1">
+                            <div class="d-flex" style="cursor: pointer;" [class.activeColor] = "router.url === '/user/profile/myFavorite'">
+                                <div class="order-1">
+                                    <span class="icon icon-Icon-awesome-heart"></span>
+                                </div>
+                                <div class="order-2 titleIcon" >
+                                    <a [routerLink]="['myFavorite']">   مفضلاتي</a>
+                                </div>
+                            </div>
+                            <hr class="my-1">
+                            <div class="d-flex" style="cursor: pointer;">
+                                <div class="order-1">
+                                    <span class="icon icon-Icon-metro-exit"></span>
+                                </div>
+                                <div class="order-2 titleIcon" (click)="auth.logout()">
+                                    <a>   تسجيل الخروج</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-12">
+                        <div [@routeAnimations]="o.isActivated ? o.activatedRoute : ''">
+                            <div class="backgroundPage">
+                                <router-outlet #o="outlet"></router-outlet>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

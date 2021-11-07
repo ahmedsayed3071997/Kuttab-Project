@@ -1,0 +1,11 @@
+$xxl:1320px;
+$xl:1320px;
+$lg:960px;
+$md:720px;
+$sm:540px;
+
+@media screen and(max-width:$sm){
+    .hide_sm{
+        display: none !important;
+    }
+}

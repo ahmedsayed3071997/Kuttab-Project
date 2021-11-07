@@ -1,0 +1,210 @@
+<div class="cover-section">
+  <div class="d-flex content-cover-section">
+    <div class="d-flex w-100">
+      <img class="h-100" src="assets/images/professional-hardcover-book.png">
+      <h3>سله الشراء</h3>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div>
+      <h3 class="text-center">الدفع</h3>
+      <span style="color: #b7b7b7;">اختر طريقة الدفع الخاصة بك</span>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 40px;margin-top: 20px;">
+    <a class="cardType" (click)="payment = false"  [ngStyle]="{'color': !payment ? '#111e6c' : '#b8b8b8' }">معلومات الشحن</a>
+    <a class="cardType" (click)="payment = true" [ngStyle]="{'color': payment ? '#111e6c' : '#b8b8b8' }">الدفع</a>
+  </div>
+  <div  *ngIf="payment" >
+    <div class="row justify-content-between price-all">
+      <h4>اجمالي المبلغ المستحق</h4>
+      <h4>{{price}} درهم</h4>
+    </div>
+    <div class="row " style="margin: 30px 0px 40px;"  >
+      <a class="cardType" (click)="changePaymentType(false);"  [ngStyle]="{'color': !paymentType ? '#111e6c' : '#b8b8b8' }">الدفع عند الاستلام</a>
+      <a class="cardType" (click)="changePaymentType(true);" [ngStyle]="{'color': paymentType ? '#111e6c' : '#b8b8b8' }">دفع بواسطة الفيزا</a>
+    </div>
+    <!-- <div class=" row card" *ngIf="paymentType" >
+      <div class="row">
+        <a class="cardType" (click)="cardNew = false"  [ngStyle]="{'color': !cardNew ? '#111e6c' : '#b8b8b8' }">بطاقة مسجلة بالفعل</a>
+        <a class="cardType" (click)="cardNew = true" [ngStyle]="{'color': cardNew ? '#111e6c' : '#b8b8b8' }">بطاقة اخري</a>
+      </div>
+      <div class="row" *ngIf="!cardNew" style="margin-top: 30px;" >
+        <div class="col-12">
+          <select   class="form-control select" id="select" [(ngModel)]="cardID">
+            <option value=null selected disabled>اختار البطاقه</option>
+            <ng-container *ngFor="let card of allCards">
+            <option [value]="card.id">{{card.card_number}}</option>
+          </ng-container>
+
+          </select>
+        </div>
+      </div>
+      <div class="row" *ngIf="cardNew">
+        <div class="page">
+          <div class="pageBody col-xl-11">
+            <form class="order-1" [formGroup]="cardForm">
+                  <div class="form-group mt-4">
+                      <label for="cardNum">رقم البطاقة </label>
+                      <div class="input-group">
+                          <input formControlName="card_number" type="number" class="form-control" placeholder="ادخل رقم البطاقه">
+                      </div>
+                      <div *ngIf="cardFormRef.card_number.touched && cardFormRef.card_number.invalid">
+                          <div class="error_message_control_form" *ngIf="cardFormRef.card_number.errors?.required"> رقم البطاقة اجباري</div>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3">
+                      <label for="cardHolderName">اسم حامل البطاقة</label>
+                      <input formControlName="holder_name" type="text" class="form-control" placeholder="اسم حامل البطاقه">
+                      <div *ngIf="cardFormRef.holder_name.touched && cardFormRef.holder_name.invalid">
+                          <div class="error_message_control_form" *ngIf="cardFormRef.holder_name.errors?.required">  اسم حامل اجباري</div>
+                      </div>
+                  </div>
+                  <div class="form-row mt-3 justify-content-between">
+                      <div class="form-group col">
+                          <label for="cvv"> تاريخ الصلاحية</label>
+                          <input formControlName="cvv" type="number" class="form-control" placeholder="تاريخ الصلاحيه">
+                          <div *ngIf="cardFormRef.cvv.touched && cardFormRef.cvv.invalid">
+                              <div class="error_message_control_form" *ngIf="cardFormRef.cvv.errors?.required">   تاريخ الصلاحية اجباري</div>
+                          </div>
+                      </div>
+                      <div class="form-group col">
+                          <div class="form-group col" style="text-align: left;">
+                              <label for="expireDate" >تاريخ الانتهاء </label>
+                              <div class="d-flex justify-content-end">
+                                  <div class="order-1">
+                                      <input style="width: 43px;" formControlName="expire_year" type="text"  maxlength="2" class="form-control" placeholder="yy">
+                                  </div>
+                                  <div class="order-2 mx-3 align-self-center">
+                                      /
+                                  </div>
+                                  <div class="order-3">
+                                      <input style="width: 43px;" formControlName="expire_month" type="text"  maxlength="2" class="form-control" placeholder="mm">
+                                  </div>
+                              </div>
+                              <div *ngIf="cardFormRef.expire_month.touched && cardFormRef.expire_month.invalid || cardFormRef.expire_year.touched && cardFormRef.expire_year.invalid">
+                                  <div class="error_message_control_form" *ngIf="cardFormRef.expire_month.errors?.required">التاريخ اجبارى</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="bntcontainer  text-center">
+              <button class="addButton" (click)="pay()">الدفع</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!payment" >
+    <form [formGroup]="paymentForm">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="form-group">
+                  <label for="input">الاسم الاول</label>
+                  <input formControlName="first_name" type="text" class="form-control" placeholder="الاسم الاول">
+                  <div *ngIf="paymentFormRef.first_name.touched && paymentFormRef.first_name.invalid">
+                      <div class="error_message_control_form" *ngIf="paymentFormRef.first_name.errors?.required">الاسم الاول</div>
+                      <div class="error_message_control_form" *ngIf="!paymentFormRef.first_name.errors?.required && paymentFormRef.first_name.errors?.minlength"> اقل عدد 3 حروف</div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+                <label for="input">الاسم الاخير</label>
+                <input formControlName="last_name" type="text" class="form-control" placeholder="الاسم الاخير">
+                <div *ngIf="paymentFormRef.last_name.touched && paymentFormRef.last_name.invalid">
+                    <div class="error_message_control_form" *ngIf="paymentFormRef.last_name.errors?.required">الاسم الاخير</div>
+                    <div class="error_message_control_form" *ngIf="!paymentFormRef.last_name.errors?.required && paymentFormRef.last_name.errors?.minlength"> اقل عدد 3 حروف</div>
+                </div>
+            </div>
+          </div>
+          <div class="col-12 row">
+            <div class="col-8" style="margin-bottom: 10px;">
+              <label for="input">اختار العنوان</label>
+              <select   class="form-control select" id="select"  formControlName="address_id" >
+                <option value="" selected disabled>اختار العنوان</option>
+                <ng-container *ngFor="let item of address">
+                  <option [value]="item.id">{{item.address}} - {{item.region}} - {{item.country}} - {{item.city}}</option>
+                </ng-container>
+              </select>
+            </div>
+            <div class="col-4">
+              <div class="bntcontainer  text-center" style="margin-top: 30px; ">
+                  <button class="addButton" [routerLink]="['/user/profile/add-address']">اضف عنوان جديد</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="containInut text-right col-12">
+                  <label>رقم الهاتف</label>
+                  <br>
+                  <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                      [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                      [selectedCountryISO]="CountryISO.India" 
+                      [maxLength]="'15'"
+                      [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                      [numberFormat]="PhoneNumberFormat.National" name="first_phone" formControlName="first_phone">
+                  </ngx-intl-tel-input>
+                  <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="col-12" *ngIf="paymentFormRef.first_phone.touched && paymentFormRef.first_phone.invalid">
+                  <div class="error_message_control_form" 
+                  *ngIf="paymentFormRef.first_phone.errors?.required">رقم الهاتف اجباري</div>
+              </div>
+              <div class="col-12" *ngIf="paymentFormRef.first_phone.touched && paymentFormRef.first_phone.invalid">
+                  <div class="error_message_control_form" 
+                  *ngIf="paymentFormRef.first_phone.errors?.validatePhoneNumber">رقم الهاتف غير صحيح</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="containInut text-right col-12">
+                  <label> رقم هاتف اخر</label>
+                  <br>
+                  <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                      [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="false"
+                      [selectedCountryISO]="CountryISO.India" 
+                      [maxLength]="'15'"
+                      [phoneValidation]="true" [separateDialCode]="separateDialCode"
+                      [numberFormat]="PhoneNumberFormat.National" name="second_phone" formControlName="second_phone">
+                  </ngx-intl-tel-input>
+                  <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="col-12" *ngIf="paymentFormRef.second_phone.touched && paymentFormRef.second_phone.invalid">
+                  <div class="error_message_control_form" 
+                  *ngIf="paymentFormRef.second_phone.errors?.required">رقم الهاتف اجباري</div>
+              </div>
+              <div class="col-12" *ngIf="paymentFormRef.second_phone.touched && paymentFormRef.second_phone.invalid">
+                  <div class="error_message_control_form" 
+                  *ngIf="paymentFormRef.second_phone.errors?.validatePhoneNumber">رقم الهاتف غير صحيح</div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="bntcontainer  text-center">
+                  <button class="addButton" (click)="Next()">التالي</button>
+              </div>
+          </div>
+      </div>
+     </form>
+  </div>
+</div>

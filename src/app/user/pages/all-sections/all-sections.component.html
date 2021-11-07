@@ -1,0 +1,19 @@
+<div class="cover-section">
+  <div class="d-flex content-cover-section">
+    <div class="d-flex w-100">
+      <img class="h-100" src="assets/images/professional-hardcover-book.png">
+      <h3>الرئيسية /كل الاقسام</h3>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>
+<div class="page" style="display: flex; justify-content: flex-start; flex-direction: column; align-items: flex-start;">
+
+  <div class="row w-100">
+      <div class="col-sm-5 col-12 box heading" *ngFor="let item of allCategoryData">
+        <a style="font-size: 20px;" [routerLink]="['/user/section-book', item.id]">{{item.name}}</a>
+        <p>{{item.description}}</p>
+      </div>
+  </div>
+</div>

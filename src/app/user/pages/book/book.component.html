@@ -1,0 +1,49 @@
+<div class="cover-section">
+  <div class="d-flex content-cover-section">
+    <div class="d-flex w-100">
+      <img class="h-100" src="assets/images/professional-hardcover-book.png">
+      <h3>الرئيسية / قسم {{book?.category?.name}} / {{book?.name}}</h3>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>
+<div class="container book-page">
+  <div class="row justify-content-center">
+    <label class="available" *ngIf="book?.number_of_copies > 0" >متوفر</label>
+    <label class="not-available" *ngIf="book?.number_of_copies == 0" > غير متوفر</label>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-4" >
+          <img class="w-100 h-100" src="{{book?.photo?.path}}">
+        </div>
+        <div class="col-8">
+          <div class="book">
+            <h5 class="book-title text-right">{{book?.name}}</h5>
+            <h6 class="name-title"><span>المؤلف :- </span><span>{{book?.author?.full_name}}</span></h6>
+            <div class="d-flex " style="margin: 25px 0px;">
+              <span class="price" *ngIf="book?.discount">{{book?.price_after_discount}} درهم</span>
+              <span class="price" *ngIf="!book?.discount">{{book?.price}} درهم</span>
+              <span class="price-discount" *ngIf="book?.price_after_discount != book?.price" >{{book?.price}} درهم</span>
+            </div>
+            <div>
+              <a class="card"  (click)="openModalConfirmAddToCart(book)"  ><span class="icon icon-cart"></span> اضف الى السله</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <h5 class="special-heading-t-1 mt-3">عن الكتاب</h5>
+        <p class="about">
+          {{book?.description}}‏
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 100px;">
+    <app-similar-books class="col-12" *ngIf="book?.category?.id"  [categoryID]="book?.category?.id"></app-similar-books>
+  </div>
+</div>

@@ -1,0 +1,194 @@
+.page {
+    padding-top: 20px;
+    padding-right: 10px;
+}
+.classTest{
+    padding: 40px 50px 40px 40px;
+}
+.page .row .heading {
+    text-align: right;
+    font: normal normal bold 20px/37px Cairo;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;    
+}
+// .page .row .searchCol {
+    
+// }
+.page .row .searchCol .input-group .form-outline input {
+    padding: 7px 10 7px 10px;
+    width: 316px;
+}
+.page .row .searchCol .input-group button {
+    width: 94px;
+    height: 41px;
+    background: #fff  0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000026;
+    border-radius: 8px 0px 0px 8px;
+    opacity: 1;
+    color: #0A0ADF;
+}
+.page .row .searchCol .input-group button:hover {
+    background: #0A0ADF;
+    color: #fff;
+    transition-delay: .1s;
+}
+.page .row .btnCol button {
+    width: 122px;
+    height: 41px;
+    text-align: center;
+    font: normal normal 600 16px/30px Cairo;
+    letter-spacing: 0px;
+    color: #0A0ADF;
+    opacity: 1;
+    background: #fff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000026;
+    border-radius: 8px;
+    opacity: 1;
+}
+.page .row .btnCol button:hover {
+    color: #FFFFFF;
+    background-color: #0A0ADF   ;
+} 
+.page .row .box {
+    padding: 20px;
+    text-align: center;
+}
+.page .row .box h6 {
+    text-align: center;
+    font: normal normal 600 18px/33px Cairo;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    padding: 0;
+    margin: 0;
+}
+.page .row .box p {
+    text-align: center;
+    font: normal normal normal 14px/32px Cairo;
+    letter-spacing: 0px;
+    color: #9A9A9A;
+    opacity: 1;
+    padding: 0;
+    margin: 0;
+}
+.page .row .box a {
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: #111E6C;
+    text-decoration: underline;
+    margin-right: 10px;
+   
+}
+.footernav {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.footernav .links {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #DBDBDB 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+    font: normal normal 600 22px/38px Cairo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    margin-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footernav .links:hover {
+    background: #111E6C 0% 0% no-repeat padding-box;
+}
+.footernav .links a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center
+}
+
+.phtotont img{
+    height: 150px;
+    width: 150px;
+    border-radius: 200px;
+    cursor: pointer;
+}
+
+
+@import"/src/assets/globalStyle/globalStyle.scss";
+
+
+@media screen and(max-width:$xl){
+    .page .row .searchCol .input-group .form-outline input {
+        width: 200px;
+    }
+    .footernav .links {
+        margin-right: 3%;
+    }
+}
+@media screen and(max-width:$lg){
+    .page .row .searchCol .input-group .form-outline input {
+        max-width: 200px;
+    }
+}
+@media screen and(max-width:$md){
+    .page .row .searchCol .input-group .form-outline input {
+     
+        margin-right: 17px;
+    }
+    .page .row .btnCol {
+        margin-right: 77px;
+        margin-top: 15px ;
+    }
+}
+@media screen and(max-width:$sm){
+    .page .row .searchCol .input-group .form-outline input {
+        width: 145px;
+        margin-right: 17px;
+    }
+    .page .row .btnCol {
+        margin-right: 77px;
+        margin-top: 15px ;
+    }
+    .footernav .links {
+        margin-right: 0%;
+    }
+    .searchCol{
+        input{
+            width: 200px !important;
+        }
+    }
+    .classTest{
+        padding: 0px 50px 40px 40px !important;
+    }
+}
+
+
+
+
+// @import"/src/assets/globalStyle/globalStyle.scss";
+
+
+// @media screen and(max-width:$xl){
+
+// }
+// @media screen and(max-width:$lg){
+
+// }
+// @media screen and(max-width:$md){
+
+// }
+// @media screen and(max-width:$sm){
+
+// }
